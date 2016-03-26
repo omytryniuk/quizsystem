@@ -1,0 +1,16 @@
+.registrationCard {
+  margin: 0 auto;
+
+  height: 400px;
+  width: 400px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -200px 0 0 -200px;
+}
+
+.mdl-card__supporting-text {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}

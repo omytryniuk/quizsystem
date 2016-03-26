@@ -1,0 +1,21 @@
+.indexCard {
+  margin: 0 auto;
+
+  height: 200px;
+  width: 140px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -70px 0 0 -70px;
+}
+
+.indexCard .mdl-button {
+  font-weight: bold !important;
+  height: 70px !important;
+  width: 140px !important;
+  color: white !important;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 20px !important;
+}
