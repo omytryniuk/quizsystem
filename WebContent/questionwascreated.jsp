@@ -38,6 +38,6 @@ Are you logged in? - <%= request.getSession().getAttribute("isLoggedIn") %>
     <% for(Answer a:la){%>
     	<p><% out.println(a.getText());%> &nbsp; <% out.println(a.isCorrect());%></p>
     <% }%><p>Correct answer is <%out.println(list.get(i).getAnswerExplained()); %></p><% } %>
-    <a href="createquestion.jsp">CREATE  QUESTIONS MY FRIEND</a><br>
+    <a href="createquestion.jsp">CREATE </a><br>
 </body>
 </html>
