@@ -50,8 +50,54 @@ public class CreateQuestion extends HttpServlet {
 		answers.add(request.getParameter("answerC"));
 		answers.add(request.getParameter("answerD"));
 		
+		
+		
+		String[] canswers=request.getParameterValues("answer");
+		//response.getWriter().print("String size is " + canswers.length);
+		Integer intanswers[] = new Integer[canswers.length];
+		for(int i = 0;i<canswers.length;i++){
+			intanswers[i]=Integer.parseInt(canswers[i]);
+		}
+
+		for(Integer i:intanswers)
+			response.getWriter().print("<br> " + i );
+		String qtype = request.getParameter("qtype");
+		Integer diff = Integer.parseInt(request.getParameter("difftype"));
+		String answerexplained = request.getParameter("answerexpl");
+		
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		Question q = new Question(questionText,answerexplained,qtype,diff);
+		
+		Answer li[]=new Answer[4];
+		
+		for (int i =0;i<4;i++){
+			li[i] = new Answer(q,answers.get(i),"false");
+		}
+		
+		for(Integer i : intanswers)
+			li[i].setCorrect("true");
+		
+		session.save(q);
+		
+		for (int i =0;i<4;i++){
+			session.save(li[i]);
+		}
+		
+		session.save(q);
+		
+		session.getTransaction().commit();
+		
+		request.getRequestDispatcher("questionwascreated.jsp").forward(request, response);
+		
+		
+		
+		/*
 		Integer ca = Integer.parseInt(request.getParameter("answer"));
 		System.out.println("INT is " +ca);
+		
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -60,27 +106,19 @@ public class CreateQuestion extends HttpServlet {
 		}
 		
 		
-		String qtype = request.getParameter("qtype");
-		Integer diff = Integer.parseInt(request.getParameter("difftype"));
-		String answerexplained = request.getParameter("answerexpl");
+		
 		
 		
 		//System.out.println("Question is: " + qt + "\n a: " + a  + "\n b: " + b  + "\n c: " + c + "\n d: " + d + "\n Answer is "+ca+ "\n Type is "+qtype + "\n Difftype is: " + diff);
 		
-		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
+		
 		
 	//	Session current = f.getCurrentSession();
-		Question q = new Question(questionText,answerexplained,qtype,diff);
-		
-		Answer li[]=new Answer[4];
-		
-		for (int i =0;i<4;i++){
-			li[i] = new Answer(q,answers.get(i),"false");
-		}
 	
-		li[ca].setCorrect("true");
+		
+		
+	
+		
 		
 		
 		
@@ -88,24 +126,7 @@ public class CreateQuestion extends HttpServlet {
 	//	temp.setAnswerId(id);
 	//	temp.setQuestion(q);
 		
-				
-			
-		
-		
-		
-		
-		
-	/*		Answer an[]=new Answer[4];
-		for(int i = 0; i < answers.size(); i++){
-	    	an[i] = new Answer();
-			an[i].setQuestion(q);
-			an[i].setCorrect(true);
-			an[i].setText(answers.get(i));
-		}*/
-		
-		
-	//	System.out.println("QUESTION IS " +an[1]);
-		//System.out.println("QUESTION name " +an[1].getText());
+
 		session.save(q);
 		
 		for (int i =0;i<4;i++){
@@ -116,12 +137,7 @@ public class CreateQuestion extends HttpServlet {
 		//session.save(temp);
 		//session.save(temp1);
 		//q.getAnswers().add(temp);	
-		
-			
-		
-		
-		
-	//	c.getUsers().add(oleg);
+		//	c.getUsers().add(oleg);
 		//oleg.getQuizzes().add(java);
 		
 		session.save(q);
@@ -129,6 +145,7 @@ public class CreateQuestion extends HttpServlet {
 		session.getTransaction().commit();
 		
 		request.getRequestDispatcher("questionwascreated.jsp").forward(request, response);
+		*/
 		
 		
 	}
