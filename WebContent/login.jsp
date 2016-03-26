@@ -15,7 +15,6 @@
   <title>Insert title here</title>
 </head>
 <body>
-Welcome to login page
 <h4>Login please</h4>
     <hr />
  
