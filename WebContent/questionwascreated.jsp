@@ -12,10 +12,9 @@
 <%
 HttpSession currSession = request.getSession();
  
-if(currSession.getAttribute("isLoggedIn") == null){
+if(currSession.getAttribute("isLoggedIn") == null) {
 	response.sendRedirect("login.jsp");
-     
-    }
+}
 %>
 
 <h2>The list of all questions</h2>
