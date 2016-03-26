@@ -15,7 +15,7 @@
   Your name:
    <input type="text" name="uname" value="${name}"/>
    <p><input type="submit" value="Submit"> 
-   <input type="reset"  value="Reset">
+   <input type="reset"  value="Resetto">
    </p>
    </form>
 
