@@ -15,7 +15,7 @@
   <title>Insert title here</title>
 </head>
 <body>
-<h4>Login please</h4>
+<h4>Login</h4>
     <hr />
  
   <form action="Login" method=post onsubmit="return validate(this);">
