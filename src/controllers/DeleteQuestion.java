@@ -60,7 +60,7 @@ public class DeleteQuestion extends HttpServlet {
 		
 		session.getTransaction().commit();
 		
-		request.getRequestDispatcher("questionwascreated.jsp").forward(request, response);
+		request.getRequestDispatcher("allquestions.jsp").forward(request, response);
 		
 		
 	

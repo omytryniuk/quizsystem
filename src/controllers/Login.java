@@ -64,12 +64,12 @@ public class Login extends HttpServlet {
 				
 				
 			//	u=em.find(User.class,12);
-				if(u.getType().compareTo("user")==0){
-					request.setAttribute("name", u.getName());
+				if(u.getType().compareTo("User")==0){
+					request.setAttribute("name", u.getEmail());
 					request.getRequestDispatcher("mainuser.jsp").forward(request, response);
 				}
 				else{
-					request.setAttribute("name", u.getName());
+					request.setAttribute("name", u.getEmail());
 					request.getRequestDispatcher("mainadmin.jsp").forward(request, response);
 				}
 				

@@ -20,19 +20,24 @@ public class User{
 	private int userId;
 	private String email;
 	private String password;
-	private String name;
+	private String fname;
+	private String lname;
 	private String type;
 	private List<Quiz> quizzes = new ArrayList<Quiz>();
 	
 	
-	public User(String email, String password, String name, String type) {
+	public User(String email, String password, String fname,String lname, String type) {
 		super();
 		this.email = email;
 		this.password = password;
-		this.name = name;
+		this.fname = fname;
+		this.lname = lname;
 		this.type = type;
 	}
 	
+	
+	
+		
 	public User() {
 		super();
 	}
@@ -57,12 +62,23 @@ public class User{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getName() {
-		return name;
+
+	public String getFname() {
+		return fname;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public void setFname(String fname) {
+		this.fname = fname;
 	}
+
+	public String getLname() {
+		return lname;
+	}
+
+	public void setLname(String lname) {
+		this.lname = lname;
+	}
+	
 	public String getType() {
 		return type;
 	}
@@ -111,7 +127,7 @@ public class User{
 			System.out.println("Not found");
 			return false;
 		}else {		
-		 System.out.println("The User name is " + temp.getName() +" and " + "password is " + temp.getPassword());
+		 System.out.println("The User name is " + temp.getFname() +" and " + "password is " + temp.getPassword());
 		 current.getTransaction().commit();
 		 return true;
 		}

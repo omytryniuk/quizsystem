@@ -3,7 +3,7 @@
   <display-name>Assignment2</display-name>
   <servlet>
     <servlet-name>servletClass</servlet-name>
-    <servlet-class>controllers.ServletA2</servlet-class>
+    <servlet-class>controllers.Login.java</servlet-class>
   </servlet>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

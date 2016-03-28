@@ -63,6 +63,7 @@ function validate(form)
       <input class="mdl-textfield__input" type="password" id="password" name="password">
       <label class="mdl-textfield__label" for="password">Password</label>
     </div>
+      <input type="hidden" name="qtype" value="Admin">
     
     <!--<div class="form-group">
       <label for="email">Email address</label>

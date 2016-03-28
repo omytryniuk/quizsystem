@@ -42,7 +42,7 @@ public class CreateQuestion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
+		System.out.println("OPENED"); 
 		String questionText = request.getParameter("questionText");
 		List<String> answers = new ArrayList<String>();
 		answers.add(request.getParameter("answerA"));
@@ -90,7 +90,7 @@ public class CreateQuestion extends HttpServlet {
 		
 		session.getTransaction().commit();
 		
-		request.getRequestDispatcher("questionwascreated.jsp").forward(request, response);
+		request.getRequestDispatcher("allquestions.jsp").forward(request, response);
 		
 		
 		

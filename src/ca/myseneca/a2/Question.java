@@ -30,6 +30,13 @@ public class Question {
 		this.type=type;
 		this.difficulty=diff;
 	}
+	public Question(int id, String t,String ae, String type, int diff){
+		this.questionId=id;
+		this.text=t;
+		this.answerExplained=ae;
+		this.type=type;
+		this.difficulty=diff;
+	}
 	public Question(String t,String ae, String type, int diff,Set<Answer> ans){
 		this.text=t;
 		this.answerExplained=ae;

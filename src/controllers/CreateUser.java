@@ -41,6 +41,7 @@ public class CreateUser extends HttpServlet {
 		String password = request.getParameter("password");
 		String fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
+		String type = request.getParameter("qtype");
 		HibernateUtil hu = new HibernateUtil();
 		User add=new User();
 		
@@ -55,7 +56,7 @@ public class CreateUser extends HttpServlet {
 				hu.createSchema();
 			}
 					
-			add = new User(uname,password, fname,lname);
+			add = new User(uname,password, fname,lname,type);
 			valid = hu.validation();
 		}
 		
