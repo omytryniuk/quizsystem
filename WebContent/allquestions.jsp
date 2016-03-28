@@ -59,8 +59,8 @@ Are you logged in? - <%= request.getSession().getAttribute("isLoggedIn") %>
 	<hr>
 	<p> Question: <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>(); la = list.get(i).getAnswers();%>
 	<br>Difficulty:<% out.println(list.get(i).getDifficulty()); %> </p>
-	<p><a href="/Assignment2/DeleteQuestion?id=<%=list.get(i).getQuestionId()%>">DELETE
-	   </a>&nbsp;&nbsp;<a href="/Assignment2/EditQuestion?id=<%=list.get(i).getQuestionId()%>">EDIT</a>
+	<p><a href="DeleteQuestion?id=<%=list.get(i).getQuestionId()%>">DELETE
+	   </a>&nbsp;&nbsp;<a href="EditQuestion?id=<%=list.get(i).getQuestionId()%>">EDIT</a>
 	</p>
     <% for(Answer a:la){%>
     	<p><% out.println(a.getText());%> &nbsp; <% out.println(a.isCorrect());%></p>
