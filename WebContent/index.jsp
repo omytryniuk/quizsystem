@@ -5,19 +5,16 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+  <link rel="stylesheet" href="assets/stylesheets/style.css" type="text/css">
+  <link rel="stylesheet" href="assets/stylesheets/index.css" type="text/css">
   
-  <link rel="stylesheet" href="style.css" type="text/css">
-  <link rel="stylesheet" href="index.css" type="text/css">
+  <link rel="stylesheet" href="./assets/mdl/material.min.css">
+  <script src="./assets/mdl/material.min.js"></script>
   
-  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
   <title>Welcome to QUIZ Manager System</title>
 </head>
   <body>
-    <!--<a href="registration.jsp"><button type="button" class="btn btn-warning">Registration</button></a><br>
-    <a href="login.jsp"><button type="button" class="btn btn-warning">Log-in</button></a>-->
-
+    
     <div class="indexCard">
       <a href="registration.jsp">
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">

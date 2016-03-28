@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
   
-  <link rel="stylesheet" href="style.css" type="text/css">
-  <link rel="stylesheet" href="registration.css" type="text/css">
+  <link rel="stylesheet" href="assets/stylesheets/style.css" type="text/css">
+  <link rel="stylesheet" href="assets/stylesheets/registration.css" type="text/css">
   
   <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
   
