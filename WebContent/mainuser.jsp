@@ -7,6 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<%
+    HttpSession currSession = request.getSession();
+ 
+    if(currSession.getAttribute("isLoggedIn") == null) {
+	    response.sendRedirect("login.jsp");
+    }
+  %>
+
 	  <p style="color:red"> ${name}, Welcome back. Your status is User </p>
 </body>
 </html>
