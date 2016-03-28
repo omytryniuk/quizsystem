@@ -8,6 +8,15 @@
     <link href="form.css" rel="stylesheet">
   </head>
   <body>
+  
+  <%
+    HttpSession currSession = request.getSession();
+ 
+    if(currSession.getAttribute("isLoggedIn") == null) {
+	    response.sendRedirect("login.jsp");
+    }
+  %>
+  
     <div class="main">
 	 <form id="form1" method="post" action="CreateQuestion">
 	    <header>
