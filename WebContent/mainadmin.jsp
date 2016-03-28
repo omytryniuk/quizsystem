@@ -40,8 +40,8 @@
 
 
   <p style="color:red"> ${name}, Welcome back. Your status is Admin </p>
-  <a href="createquestion.jsp">CREATE A QUESTION</a><br>
-  <a href="questionwascreated.jsp">DISPLAY CREATED QUESTIONS</a><br>
+  <a href="#">CREATE A QUESTION</a><br>
+  <a href="allquestions.jsp">DISPLAY CREATED QUESTIONS</a><br>
  
 </body>
 </html>

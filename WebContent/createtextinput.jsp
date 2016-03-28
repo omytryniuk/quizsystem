@@ -10,17 +10,14 @@
   <body>
   
  
-<% 	String answer = request.getParameter("id"); 
-String s = (String)request.getAttribute("questionText");
-Integer dodo = (Integer)request.getAttribute("diff");
-System.out.println("S is " + s);
-System.out.println("Dodo is " + dodo);
-String post = "CreateInputQuestion";
-	if(answer!=null){
-		post+="?id="+answer;
-		
-	
+<% String post = "CreateInputQuestion";
+	int diff=0;
+	if(request.getParameter("id")!=null){
+		post+="?id="+request.getParameter("id");
+		diff = (Integer)request.getAttribute("diff");
+		System.out.println("difficult type "+diff);
 	}
+
  %>			
   
     <div class="main">
@@ -41,19 +38,19 @@ String post = "CreateInputQuestion";
       <ul>
         <li>
           <label for="easyq">
-        <input type="radio" id="easy" name="difftype" <% if(dodo==1){%> checked <%}%>  value="1" />
+        <input type="radio" id="easy" name="difftype" <% if(diff==1){%> checked <%}%> value="1" />
         Easy
         </label>
         </li>
         <li>
           <label for="middleq">
-        <input type="radio" id="middle" name="difftype" <% if(dodo==2){%> checked <%}%> value="2" />
-        Middle
+        <input type="radio" id="middle" name="difftype" <% if(diff==2){%> checked <%}%> value="2" />
+        Medium
         </label>
         </li>
         <li>
           <label for="hardq">
-        <input type="radio" id="hard" name="difftype" <% if(dodo==3){%> checked <%}%> value="3" />
+        <input type="radio" id="hard" name="difftype" <% if(diff==3){%> checked <%}%> value="3" />
         Hard
         </label>
         </li>
