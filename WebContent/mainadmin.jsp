@@ -10,6 +10,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<%
+    HttpSession currSession = request.getSession();
+ 
+    if(currSession.getAttribute("isLoggedIn") == null) {
+	    response.sendRedirect("login.jsp");
+    }
+  %>
+
 <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">

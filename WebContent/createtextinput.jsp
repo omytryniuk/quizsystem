@@ -9,6 +9,13 @@
   </head>
   <body>
   
+  <%
+    HttpSession currSession = request.getSession();
+ 
+    if(currSession.getAttribute("isLoggedIn") == null) {
+	    response.sendRedirect("login.jsp");
+    }
+  %>
  
 <% String post = "CreateInputQuestion";
 	int diff=0;
