@@ -37,8 +37,8 @@
 
 
   <p style="color:red"> ${name}, Welcome back. Your status is User </p>
-  <a href="#">CREATE A QUESTION</a><br>
-  <a href="allquestions.jsp">DISPLAY CREATED QUESTIONS</a><br>
+  
+  <a href="StartQuiz">START QUIZ</a><br>
  
 </body>
 </html>
