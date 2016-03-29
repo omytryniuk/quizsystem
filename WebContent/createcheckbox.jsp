@@ -17,44 +17,56 @@
     }
   %>
   
+   <% String post = "CreateQuestion";
+	int diff=0;
+	String[] correct = (String[])request.getAttribute("correct");
+	if(request.getParameter("id")!=null){
+		post+="?id="+request.getParameter("id");
+		diff = (Integer)request.getAttribute("diff");
+		//String[] correct = (String[])request.getAttribute("correct");
+		System.out.println("difficult type "+diff);
+	}
+
+ %>
+  
     <div class="main">
-	 <form id="form1" method="post" action="CreateQuestion">
+	 <form id="form1" method="post" action="<%=post%>" >
 	    <header>
 	      <h2>Create Multiple Choice Question</h2>
 		</header>
 		<section id="basic">
       <p class="textLabel">Question Text</p>
-      <textarea name="questionText"></textarea><br/>
+      <textarea name="questionText">${questionText}</textarea><br/>
       Check all answers that are true
       <p class="textLabel">Option A</p>
-  <input style="width:15px"type="checkbox" name="answer" id="optionA" value="0"><textarea name="answerA"></textarea><br>
+  <input style="width:15px"type="checkbox" name="answer" id="optionA" <% if(correct[0]=="1"){%> checked <%}%> value="0"><textarea name="answerA">${A1}</textarea><br>
       <p class="textLabel">Option B</p>  
-  <input style="width:15px"type="checkbox" name="answer" id="optionB" value="1"><textarea name="answerB"></textarea><br> 
+  <input style="width:15px"type="checkbox" name="answer" id="optionB"  <% if(correct[1]=="1"){%> checked <%}%>   value="1"><textarea name="answerB">${A2}</textarea><br> 
       <p class="textLabel">Option C</p>  
-  <input style="width:15px"type="checkbox" name="answer" id="optionC" value="2"><textarea name="answerC"></textarea><br>
+  <input style="width:15px"type="checkbox" name="answer" id="optionC"  <% if(correct[2]=="1"){%> checked <%}%>  value="2"><textarea name="answerC">${A3}</textarea><br>
         <p class="textLabel">Option D</p> 
-  <input style="width:15px"type="checkbox" name="answer" id="optionD" value="3"><textarea name="answerD"></textarea><br>                           
+  <input style="width:15px"type="checkbox" name="answer" id="optionD"  <% if(correct[3]=="1"){%> checked <%}%>  value="3"><textarea name="answerD">${A4}</textarea><br>                           
    <p class="textLabel">Answer explanation</p>
-      <textarea name="answerexpl"></textarea>  
+      <textarea name="answerexpl">${answerexpl}</textarea>  
       <input type="hidden" name="qtype" value="checkbox">	
 	<fieldset> 
 			<legend>Difficulty of the Answer</legend>
 			<ul>
 			  <li>
 			    <label for="easyq">
-				<input type="radio" id="easyt" name="difftype" value="1" />
+				<input type="radio" id="easyt" name="difftype" <% if(diff==1){%> checked <%}%> value="1" />
 				Easy
 				</label>
 			  </li>
 			  <li>
 			    <label for="middleq">
-				<input type="radio" id="middlet" name="difftype" value="2" />
+				<input type="radio" id="middlet" name="difftype" <% if(diff==2){%> checked <%}%> value="2" />
 				Middle
 				</label>
 			  </li>
 			  <li>
 			    <label for="hardq">
-				<input type="radio" id="hardt" name="difftype" value="3" />
+				<input type="radio" id="hardt" name="difftype" <% if(diff==3){%> checked <%}%> value="3" />
 				Hard
 				</label>
 			  </li>

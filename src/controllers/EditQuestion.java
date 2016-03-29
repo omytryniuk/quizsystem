@@ -113,8 +113,32 @@ public class EditQuestion extends HttpServlet {
 		} 
 		
 		else{
+			response.getWriter().print("CHECK BOXES");				
+			String str[]=new String[4];
+			Set<Answer> s = q.getAnswers();
+			int i = 0;
+			String correct[]={"0","0","0","0"};
+			for(Answer an:s){
+				str[i]=an.getText();
+				if(an.isCorrect().equals("true"))
+					correct[i] = "1";
+				i++;
+			}
 			
-			response.getWriter().print("M");		
+			request.setAttribute("questionText", q.getText());
+			request.setAttribute("answerexpl",q.getAnswerExplained());
+			request.setAttribute("diff",q.getDifficulty());
+			request.setAttribute("A1",str[0]);
+			request.setAttribute("A2",str[1]);
+			request.setAttribute("A3",str[2]);
+			request.setAttribute("A4",str[3]);
+			request.setAttribute("correct",correct);
+			
+			request.getRequestDispatcher("createcheckbox.jsp").forward(request, response);	
+			
+			
+			
+			
 			
 		}
 		
