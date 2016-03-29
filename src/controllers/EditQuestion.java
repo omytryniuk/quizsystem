@@ -73,9 +73,11 @@ public class EditQuestion extends HttpServlet {
 			request.setAttribute("qtype", qtype);
 			request.setAttribute("Id", "12345");
 			
-			request.getRequestDispatcher("createtextinput.jsp").forward(request, response);
 			
-		   
+			if(q.getType().equals("textinput"))
+				request.getRequestDispatcher("createtextinput.jsp").forward(request, response);
+			else
+				request.getRequestDispatcher("createnumberinput.jsp").forward(request, response);
 			
 			
 		}
