@@ -66,7 +66,7 @@ int q = 0;
 
 
 
-  <form id="form1" method="post" action="CreateQuestion">
+  <form id="form1" method="post" action="SubmitQuiz">
   		<% for(int i = 0; i < Questions.size(); i++) {
   			 if(Questions.get(i).getType().equals("multiplechoice")) {
   			%>       		<p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
@@ -75,7 +75,7 @@ int q = 0;
 				int l = 1;%>
 			  <li>
 			    <label for="answerA">
-				<input type="radio" id="answerA" name="<% out.println(q); %>" value="<% out.println(q); %>" />
+				<input type="radio" id="answerA" name="question<% out.println(q); %>" value="<% out.println(q); %>" />
 <% out.println(a.getText());
 l++;%>
 				</label>
@@ -88,14 +88,14 @@ l++;%>
   			%>       		<p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
 
 			    <label for="answerA">
-  <input "margin-left:12em;" type="text" id="answer" name="<% out.println(q); %>" value ="">				</label>
+  <input "margin-left:12em;" type="number" id="answer" name="question<% out.println(q); %>" value ="">				</label>
 <%  
 	q++; }
   			 else if(Questions.get(i).getType().equals("textinput")) {
   			%>       		<p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
 
 			    <label for="answerA">
-  <input "margin-left:12em;" type="text" id="answer" name="<% out.println(q); %>" value ="">				</label>
+  <input "margin-left:12em;" type="text" id="answer" name="question<% out.println(q); %>" value ="">				</label>
 <%  
 	q++; } 
   			 else if(Questions.get(i).getType().equals("checkbox")) {
@@ -105,7 +105,7 @@ l++;%>
   					int l = 1;%>
   				  <li>
   				    <label for="answerA">
-  					<input type="checkbox" id="answerA" name="<% out.println(q); %>" value="<% out.println(q); %>" />
+  					<input type="checkbox" id="answerA" name="question" value="<% out.println(q); %>" />
   	<% out.println(a.getText());
   	l++;%>
   					</label>
@@ -113,12 +113,14 @@ l++;%>
   				  <%} %>
   				</ul> 
   	<%  
-  		q++; } 
-  		
-  			 
-  			  
+  		q++; }   
   			 }
-  		%>  		   
+  		%>  
+  		<br/>
+		  <p class="buttonSet">
+		    <button type="reset" id="resetButton" value="reset">Reset</button>
+			<button type="submit" id="submitButton" value="Apply">Submit</button>
+		  </p>   				   
   		</form> 
 </body>
 </html>
