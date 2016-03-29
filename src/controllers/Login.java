@@ -65,6 +65,7 @@ public class Login extends HttpServlet {
 				
 			//	u=em.find(User.class,12);
 				if(u.getType().compareTo("User")==0){
+					System.out.println("GOES INSIDE");
 					request.setAttribute("name", u.getEmail());
 					request.getRequestDispatcher("mainuser.jsp").forward(request, response);
 				}

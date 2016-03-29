@@ -18,7 +18,7 @@
 <h4>Login</h4>
     <hr />
  
-  <form action="Login" method=post onsubmit="return validate(this);">
+  <form action="Login" method=post>
   <p style="color:red"> ${message} </p>
   <div class="form-group">
     <label for="email">Email address</label>
