@@ -42,38 +42,25 @@ Session ses = sessionFactory.openSession();
 List<Question> list = ses.createCriteria(Question.class).list();
 List<Question> Questions = new ArrayList<Question>();
 
-List<Question> easyQuestions = new ArrayList<Question>();
-List<Question> mediumQuestions = new ArrayList<Question>();
-List<Question> difficultQuestions = new ArrayList<Question>();
-
 String difficulty = "";
+int easy_counter = 0;
+int medium_counter = 0;
+int hard_counter = 0;
 for(int i = 0; i < list.size(); i++) {
 	
-  if(list.get(i).getDifficulty() == 1) {
-	easyQuestions.add(list.get(i));
-  }
-  if(list.get(i).getDifficulty() == 2) {
-    mediumQuestions.add(list.get(i));
-  }
-  if(list.get(i).getDifficulty() == 3) {
-    difficultQuestions.add(list.get(i));
-  }
+if(list.get(i).getDifficulty() == 1 && easy_counter < 3) {
+	Questions.add(list.get(i));
+	easy_counter++;
 }
-
-Collections.shuffle(easyQuestions);
-Collections.shuffle(mediumQuestions);
-Collections.shuffle(difficultQuestions);
-
-for(int i = 0; i < easyQuestions.size() && i < 3; i++) {
-	Questions.add(easyQuestions.get(i));
+if(list.get(i).getDifficulty() == 2 && medium_counter < 2) {
+	Questions.add(list.get(i));
+	medium_counter++;
 }
-for(int i = 0; i < mediumQuestions.size() && i < 2; i++) {
-	Questions.add(mediumQuestions.get(i));
+if(list.get(i).getDifficulty() == 3 && hard_counter < 1) {
+	Questions.add(list.get(i));
+	hard_counter++;
 }
-for(int i = 0; i < difficultQuestions.size() && i < 1; i++) {
-	Questions.add(difficultQuestions.get(i));
 }
-
 int q = 0;
 %>
 
