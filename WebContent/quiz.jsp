@@ -105,7 +105,7 @@ l++;%>
   					int l = 1;%>
   				  <li>
   				    <label for="answerA">
-  					<input type="checkbox" id="answerA" name="question" value="<% out.println(q); %>" />
+  					<input type="checkbox" id="answerA" name="question<% out.println(q); %>" value="<% out.println(a.getText()); %>" />
   	<% out.println(a.getText());
   	l++;%>
   					</label>

@@ -26,7 +26,7 @@ public class SubmitQuiz extends HttpServlet {
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
  
-    	String languages[] = request.getParameterValues("question");
+    	String languages[] = request.getParameterValues("question0");
     	String htmlRespone = "<html>";
     	 
     	int i = 1;
