@@ -49,6 +49,7 @@ public class EditQuestion extends HttpServlet {
 		Question q = new Question();
 		q = (Question)criteria.add(Restrictions.eq("questionId",id)).uniqueResult();
 		
+		
 		if(q.getType().equals("textinput") || q.getType().equals("numberinput")){
 			response.getWriter().print("TEXT INPUT OR NUMBER");		
 			String questionText = q.getText();
@@ -73,12 +74,44 @@ public class EditQuestion extends HttpServlet {
 			request.setAttribute("qtype", qtype);
 			request.setAttribute("Id", "12345");
 			
-			request.getRequestDispatcher("createtextinput.jsp").forward(request, response);
 			
-		   
+			if(q.getType().equals("textinput"))
+				request.getRequestDispatcher("createtextinput.jsp").forward(request, response);
+			else
+				request.getRequestDispatcher("createnumberinput.jsp").forward(request, response);
 			
 			
 		}
+		
+		if(q.getType().equals("multiplechoice")){
+			response.getWriter().print("MULTIPLE CHOICE");		
+			//String questionText = q.getText();
+			String str[]=new String[4];
+			Set<Answer> s = q.getAnswers();
+			int i = 0;
+			int correct=0;
+			for(Answer an:s){
+				str[i]=an.getText();
+				if(an.isCorrect().endsWith("true"))
+					correct = i;
+				i++;
+			}
+						
+			request.setAttribute("questionText", q.getText());
+			request.setAttribute("answerexpl",q.getAnswerExplained());
+			request.setAttribute("diff",q.getDifficulty());
+			request.setAttribute("A1",str[0]);
+			request.setAttribute("A2",str[1]);
+			request.setAttribute("A3",str[2]);
+			request.setAttribute("A4",str[3]);
+			request.setAttribute("correct",correct);
+			
+			request.getRequestDispatcher("createmultiplechoice.jsp").forward(request, response);				
+			
+			
+			
+		} 
+		
 		else{
 			
 			response.getWriter().print("M");		

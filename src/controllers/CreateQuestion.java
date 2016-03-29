@@ -12,9 +12,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Restrictions;
 
 import ca.myseneca.a2.Answer;
 import ca.myseneca.a2.Question;
@@ -42,6 +44,8 @@ public class CreateQuestion extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String receivedId = request.getParameter("id");
+				
 		System.out.println("OPENED"); 
 		String questionText = request.getParameter("questionText");
 		List<String> answers = new ArrayList<String>();
@@ -69,16 +73,47 @@ public class CreateQuestion extends HttpServlet {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		
-		Question q = new Question(questionText,answerexplained,qtype,diff);
-		
+		Question q = null;
 		Answer li[]=new Answer[4];
 		
-		for (int i =0;i<4;i++){
-			li[i] = new Answer(q,answers.get(i),"false");
+		
+		
+		if(receivedId==null){
+			response.getWriter().print("NO ID");
+			q = new Question(questionText,answerexplained,qtype,diff);
+			for (int i =0;i<4;i++){
+				li[i] = new Answer(q,answers.get(i),"false");
+			}
+			
+			for(Integer i : intanswers)
+				li[i].setCorrect("true");
 		}
 		
-		for(Integer i : intanswers)
-			li[i].setCorrect("true");
+		
+		else{
+			System.out.println("CHANGING");
+			response.getWriter().print("ID: "+receivedId);
+			Integer id =  Integer.parseInt(receivedId);
+			Criteria criteria = session.createCriteria(Question.class);
+			q = new Question();
+			q = (Question)criteria.add(Restrictions.eq("questionId",id)).uniqueResult();
+		
+			q.setAnswerExplained(answerexplained);
+			q.setDifficulty(diff);
+			q.setType(qtype);
+			q.setText(questionText);
+			
+			
+			q.getAnswers().clear();
+			//session.delete(q);
+			
+			for (int i =0;i<4;i++){
+				li[i] = new Answer(q,answers.get(i),"false");
+			}
+			
+			for(Integer i : intanswers)
+				li[i].setCorrect("true");
+		}	
 		
 		session.save(q);
 		
@@ -86,67 +121,12 @@ public class CreateQuestion extends HttpServlet {
 			session.save(li[i]);
 		}
 		
-		session.save(q);
+	//	session.save(q);
 		
 		session.getTransaction().commit();
 		
 		request.getRequestDispatcher("allquestions.jsp").forward(request, response);
-		
-		
-		
-		/*
-		Integer ca = Integer.parseInt(request.getParameter("answer"));
-		System.out.println("INT is " +ca);
-		
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		
-		
-		
-		//System.out.println("Question is: " + qt + "\n a: " + a  + "\n b: " + b  + "\n c: " + c + "\n d: " + d + "\n Answer is "+ca+ "\n Type is "+qtype + "\n Difftype is: " + diff);
-		
-		
-		
-	//	Session current = f.getCurrentSession();
 	
-		
-		
-	
-		
-		
-		
-		
-	//	Integer id =q.getQuestionId();
-	//	temp.setAnswerId(id);
-	//	temp.setQuestion(q);
-		
-
-		session.save(q);
-		
-		for (int i =0;i<4;i++){
-			session.save(li[i]);
-		}
-		
-		
-		//session.save(temp);
-		//session.save(temp1);
-		//q.getAnswers().add(temp);	
-		//	c.getUsers().add(oleg);
-		//oleg.getQuizzes().add(java);
-		
-		session.save(q);
-	
-		session.getTransaction().commit();
-		
-		request.getRequestDispatcher("questionwascreated.jsp").forward(request, response);
-		*/
-		
 		
 	}
 
