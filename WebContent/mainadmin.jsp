@@ -40,6 +40,7 @@
                        </ul>
                  </li>
                     <li><a href="allquestions.jsp">All Questions</a></li>
+                    <li><a href="Logoff">Log-out</a></li> 
                                        
                 </ul>
             </div>             

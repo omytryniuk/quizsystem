@@ -62,6 +62,9 @@ public class Login extends HttpServlet {
 				User u = new User();
 				u = (User)criteria.add(Restrictions.eq("userId",ui)).uniqueResult();
 				
+				HttpSession httpSession = request.getSession();
+				httpSession.setAttribute("isLoggedIn",true);
+				httpSession.setAttribute("userType",u.getType());
 				
 			//	u=em.find(User.class,12);
 				if(u.getType().compareTo("User")==0){
@@ -74,8 +77,7 @@ public class Login extends HttpServlet {
 					request.getRequestDispatcher("mainadmin.jsp").forward(request, response);
 				}
 				
-				HttpSession httpSession = request.getSession();
-				httpSession.setAttribute("isLoggedIn",true);
+				
 			}
 				
 			else{

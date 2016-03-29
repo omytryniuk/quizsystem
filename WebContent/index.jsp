@@ -14,6 +14,20 @@
   <title>Welcome to QUIZ Manager System</title>
 </head>
   <body>
+  
+   <%
+    HttpSession currSession = request.getSession();
+ 
+    if(currSession.getAttribute("isLoggedIn") != null) {
+	  	if(currSession.getAttribute("userType").equals("Admin"))
+    		response.sendRedirect("mainadmin.jsp");
+    	else
+    			response.sendRedirect("mainuser.jsp");
+    			
+    }
+  %>
+  
+  
     
     <div class="indexCard">
       <a href="registration.jsp">

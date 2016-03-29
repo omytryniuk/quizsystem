@@ -28,7 +28,7 @@
                        </ul>
                  </li>
                     <li><a href="allquestions.jsp">All Questions</a></li>
-                                       
+                    <li><a href="Logoff">Log-out</a></li>                   
                 </ul>
             </div>             
         </div>
@@ -38,7 +38,7 @@
 
   <p style="color:red"> ${name}, Welcome back. Your status is User </p>
   
-  <a href="StartQuiz">START QUIZ</a><br>
+  <a href="quiz.jsp">START QUIZ</a><br>
  
 </body>
 </html>
