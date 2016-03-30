@@ -105,7 +105,24 @@ public class SubmitQuiz extends HttpServlet {
     	i = 1;
     	
     	if (languages != null) {
-    	    htmlResponse += "<h2>Second Question:</h2>";
+    	    htmlResponse += "<h2>Fifth Question:</h2>";
+    	    for (String lang : languages) {
+    	    	i++;
+    	    	htmlResponse += i + "<p> answer is: " + lang + "</p>";
+    	    	htmlResponse += "</html>";    	    	
+    	        System.out.println("\t" + lang);
+    	    }
+    	    htmlResponse += "<br>";
+    	}
+    	
+        // Sixth Question:
+    	
+    	languages = request.getParameterValues("question5");
+    	
+    	i = 1;
+    	
+    	if (languages != null) {
+    	    htmlResponse += "<h2>Sixth Question:</h2>";
     	    for (String lang : languages) {
     	    	i++;
     	    	htmlResponse += i + "<p> answer is: " + lang + "</p>";
