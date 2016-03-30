@@ -25,27 +25,100 @@ public class SubmitQuiz extends HttpServlet {
 	
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
- 
-    	String languages[] = request.getParameterValues("question0");
-    	String htmlRespone = "<html>";
-    	 
-    	int i = 1;
+    	
+    	String languages[];
+    	String htmlResponse = "<html>";
+    	int i;
+    	
+    	// First Question:
+    	
+    	languages = request.getParameterValues("question0");
+    	
+    	i = 1;
     	
     	if (languages != null) {
-    	    System.out.println("Languages are: ");
+    	    htmlResponse += "<h2>First Question:</h2>";
     	    for (String lang : languages) {
     	    	i++;
-    	    	htmlRespone += i + "<h2> answer is: " + lang + "</h2>";
-    	    	htmlRespone += "</html>";    	    	
+    	    	htmlResponse += i + "<p> answer is: " + lang + "</p>";
+    	    	htmlResponse += "</html>";    	    	
     	        System.out.println("\t" + lang);
     	    }
+    	    htmlResponse += "<br>";
     	}
     	
-    	PrintWriter writer = response.getWriter();
+        // Second Question:
     	
-
-    	 
-    	writer.println(htmlRespone);
+    	languages = request.getParameterValues("question1");
+    	
+    	i = 1;
+    	
+    	if (languages != null) {
+    	    htmlResponse += "<h2>Second Question:</h2>";
+    	    for (String lang : languages) {
+    	    	i++;
+    	    	htmlResponse += i + "<p> answer is: " + lang + "</p>";
+    	    	htmlResponse += "</html>";    	    	
+    	        System.out.println("\t" + lang);
+    	    }
+    	    htmlResponse += "<br>";
+    	}
+    	
+        // Third Question:
+    	
+    	languages = request.getParameterValues("question2");
+    	
+    	i = 1;
+    	
+    	if (languages != null) {
+    	    htmlResponse += "<h2>Third Question:</h2>";
+    	    for (String lang : languages) {
+    	    	i++;
+    	    	htmlResponse += i + "<p> answer is: " + lang + "</p>";
+    	    	htmlResponse += "</html>";    	    	
+    	        System.out.println("\t" + lang);
+    	    }
+    	    htmlResponse += "<br>";
+    	}
+    	
+        // Fourth Question:
+    	
+    	languages = request.getParameterValues("question3");
+    	
+    	i = 1;
+    	
+    	if (languages != null) {
+    	    htmlResponse += "<h2>Fourth Question:</h2>";
+    	    for (String lang : languages) {
+    	    	i++;
+    	    	htmlResponse += i + "<p> answer is: " + lang + "</p>";
+    	    	htmlResponse += "</html>";    	    	
+    	        System.out.println("\t" + lang);
+    	    }
+    	    htmlResponse += "<br>";
+    	}
+    	
+        // Fifth Question:
+    	
+    	languages = request.getParameterValues("question4");
+    	
+    	i = 1;
+    	
+    	if (languages != null) {
+    	    htmlResponse += "<h2>Second Question:</h2>";
+    	    for (String lang : languages) {
+    	    	i++;
+    	    	htmlResponse += i + "<p> answer is: " + lang + "</p>";
+    	    	htmlResponse += "</html>";    	    	
+    	        System.out.println("\t" + lang);
+    	    }
+    	    htmlResponse += "<br>";
+    	}
+    	
+    	// Output:
+    	
+    	PrintWriter writer = response.getWriter();
+    	writer.println(htmlResponse);
  
     }
 
