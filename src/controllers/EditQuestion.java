@@ -135,19 +135,9 @@ public class EditQuestion extends HttpServlet {
 			request.setAttribute("correct",correct);
 			
 			request.getRequestDispatcher("createcheckbox.jsp").forward(request, response);	
-			
-			
-			
-			
+					
 			
 		}
-		
-		
-		
-		
-		
-		
-		
 		
 	}
 

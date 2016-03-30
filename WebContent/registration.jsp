@@ -65,23 +65,6 @@ function validate(form)
     </div>
       <input type="hidden" name="qtype" value="Admin">
     
-    <!--<div class="form-group">
-      <label for="email">Email address</label>
-      <input type="email" class="form-control" name="email" placeholder="Email">
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" name="password" placeholder="Password">
-    </div>
-    <div class="form-group">
-      <label for="fname">First Name</label>
-      <input type="text" class="form-control" name="fname" placeholder="Your name">
-    </div>
-    <div class="form-group">
-      <label for="lname">Last name</label>
-      <input type="text" class="form-control" name="lname" placeholder="Last name">
-    </div>-->
-    <!--<button type="submit" class="btn btn-default">Submit</button>-->
   </div>
   
   <div class="mdl-card__actions mdl-card--border">
@@ -89,32 +72,6 @@ function validate(form)
   </div>
   </form>
 </div>
-
-<!--Welcome to registration
-<h4>Create a new account.</h4>
-    <hr /> 
- 
-  <form action="CreateUser" method=post onsubmit="return validate(this);">
-  <p style="color:red"> ${message} </p>
-  <div class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" name="email" placeholder="Email">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" placeholder="Password">
-  </div>
-  <div class="form-group">
-    <label for="fname">First Name</label>
-    <input type="text" class="form-control" name="fname" placeholder="Your name">
-  </div>
-  <div class="form-group">
-    <label for="lname">Last name</label>
-    <input type="text" class="form-control" name="lname" placeholder="Last name">
-  </div>
-  
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>-->
    
 </body>
 </html>
