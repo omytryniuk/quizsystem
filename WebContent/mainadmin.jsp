@@ -34,6 +34,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Create questions<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                            <li><a href="createcheckbox.jsp">Check Boxes</a></li>
+                           <li><a href="createdropdown.jsp">Dropdown</a></li>
                            <li><a href="createmultiplechoice.jsp">Multiple Choice</a></li>
                            <li><a href="createnumberinput.jsp">Numeric input</a></li>
                            <li><a href="createtextinput.jsp">Text input</a></li>
@@ -51,7 +52,7 @@
 
   <p style="color:red"> ${name}, Welcome back. Your status is Admin </p>
   <a href="#">CREATE A QUESTION</a><br>
-  <a href="allquestions.jsp">DISPLAY CREATED QUESTIONS</a><br>
+ <!--  <a href="allquestions.jsp">DISPLAY CREATED QUESTIONS</a><br> -->
  
 </body>
 </html>

@@ -7,10 +7,8 @@
   
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
-  
   <link rel="stylesheet" href="assets/stylesheets/style.css" type="text/css">
-  <link rel="stylesheet" href="assets/stylesheets/registration.css" type="text/css">
-  
+  <link rel="stylesheet" href="assets/stylesheets/user.css" type="text/css">
   <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
   
   <title>New user registration</title>
@@ -33,7 +31,7 @@ function validate(form)
 </head>
 <body>
 
-<div class="registrationCard mdl-card mdl-shadow--6dp">
+<div class="UserCard mdl-card mdl-shadow--6dp">
 
   <div class="mdl-card__title">
     <h3 class="mdl-card__title-text">Create a new account</h3>

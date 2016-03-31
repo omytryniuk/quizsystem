@@ -19,23 +19,7 @@
 //	response.sendRedirect("login.jsp");
 //}
 %>
-<div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="allquestions.jsp">All Questions</a></li>                         
-                </ul>
-            </div>             
-        </div>
-    </div>
-<h2>The list of all questions</h2>
+
 <%
 SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 Session ses = sessionFactory.openSession();
@@ -70,6 +54,24 @@ int q = 0;
 
 
 
+<div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="mainuser.jsp">Home</a></li>
+                    <li><a href="Logoff">Log-out</a></li>                   
+                </ul>
+            </div>             
+        </div>
+    </div>
+</div><p></p><br><br><br>
 <form id="form1" method="post" action="SubmitQuiz">
     <% for(int i = 0; i < Questions.size(); i++) {
         if(Questions.get(i).getType().equals("multiplechoice")) {
@@ -136,5 +138,6 @@ int q = 0;
 <button type="submit" id="submitButton" value="Apply">Submit</button>
 </p>   				   
 </form> 
+</div>
 </body>
 </html>

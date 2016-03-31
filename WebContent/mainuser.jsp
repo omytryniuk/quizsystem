@@ -4,6 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
 <body>
@@ -18,16 +22,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Create questions<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                           <li><a href="createcheckbox.jsp">Check Boxes</a></li>
-                           <li><a href="createmultiplechoice.jsp">Multiple Choice</a></li>
-                           <li><a href="createnumberinput.jsp">Numeric input</a></li>
-                           <li><a href="createtextinput.jsp">Text input</a></li>
-                       </ul>
-                 </li>
-                    <li><a href="allquestions.jsp">All Questions</a></li>
+                    <li><a href="quiz.jsp">Start Quiz</a></li>
                     <li><a href="Logoff">Log-out</a></li>                   
                 </ul>
             </div>             
@@ -38,7 +33,7 @@
 
   <p style="color:red"> ${name}, Welcome back. Your status is User </p>
   
-  <a href="quiz.jsp">START QUIZ</a><br>
+ 
  
 </body>
 </html>

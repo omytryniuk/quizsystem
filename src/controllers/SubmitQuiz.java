@@ -59,9 +59,20 @@ public class SubmitQuiz extends HttpServlet {
     		htmlResponse += "<h1>QUESTION</h1>";
     		isAnswerCorrect = true;
     		if(questionsList.get(i).getType().equals("checkbox")) {
-    			htmlResponse += "<h3>checkbox</h3>";
-    			htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
+    	//		htmlResponse += "<h3>checkbox</h3>";
+    	//		htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
+    			htmlResponse += (questionsList.get(i).getText());
     			answersSet = questionsList.get(i).getAnswers();
+    			
+    			//ADDED
+    			htmlResponse+="<p>Correct answers: </p>";
+    			for(Answer a : answersSet){
+    				if(a.isCorrect().equals("true")){
+    				htmlResponse += a.getText()+"<br>";
+    				System.out.println(a.getText());
+    				}
+    			}
+    			
     			for(Answer ans: answersSet) {
     	    	    if(ans.isCorrect().equals("true")) {
     	    	    	flag = false;
@@ -100,10 +111,19 @@ public class SubmitQuiz extends HttpServlet {
     			htmlResponse += "</p>";
     			
     		} else if(questionsList.get(i).getType().equals("textinput")) {
-    			htmlResponse += "<h3>textinput</h3>";
-    			htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
+    		//	htmlResponse += "<h3>textinput</h3>";
+    		//	htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
     			
+    			htmlResponse += (questionsList.get(i).getText());
     			answersSet = questionsList.get(i).getAnswers();
+    			htmlResponse+="<p>Correct answers: </p>";
+    			for(Answer a : answersSet){
+    				if(a.isCorrect().equals("true")){
+    				htmlResponse += a.getText()+"<br>";
+    				System.out.println(a.getText());
+    				}
+    			}
+    			
     			
     			htmlResponse += "<h5>Is my answer correct?</h5>";
     			
@@ -115,11 +135,28 @@ public class SubmitQuiz extends HttpServlet {
     	    	}
     	    	
     		} else if(questionsList.get(i).getType().equals("multiplechoice")) {
-    			htmlResponse += "<h3>multiplechoice</h3>";
-    			htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
+    		//	htmlResponse += "<h3>multiplechoice</h3>";
+    		//	htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
+    			
+    			htmlResponse += (questionsList.get(i).getText());
+    			
     			
     			answersSet = questionsList.get(i).getAnswers();
     			
+    			// CHANGED
+    			htmlResponse+="<p>Correct answers: </p>";
+    			for(Answer a : answersSet){
+    				if(a.isCorrect().equals("true")){
+    				htmlResponse += a.getText();
+    				System.out.println(a.getText());
+    				}
+    			}
+    			
+    			
+    		//	System.out.println(myAnswers[0][0]);
+    			
+    			
+    			//MAX
     			for(Answer ans: answersSet) {
     				if(ans.isCorrect().equals("true")) {
     				    if(ans.getAnswerId() == Integer.parseInt(myAnswers[i][0])) {
@@ -138,10 +175,18 @@ public class SubmitQuiz extends HttpServlet {
     			htmlResponse += "</p>";
     			
     		} else if(questionsList.get(i).getType().equals("numberinput")) {
-    			htmlResponse += "<h3>numberinput</h3>";
-    			htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
-    			
+    		//	htmlResponse += "<h3>numberinput</h3>";
+    		//	htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
+    			htmlResponse += (questionsList.get(i).getText());
     			answersSet = questionsList.get(i).getAnswers();
+    			htmlResponse+="<p>Correct answers: </p>";
+    			for(Answer a : answersSet){
+    				if(a.isCorrect().equals("true")){
+    				htmlResponse += a.getText()+"<br>";
+    				System.out.println(a.getText());
+    				}
+    			}
+    			
     			
                 htmlResponse += "<h5>Is my answer correct?</h5>";
     			

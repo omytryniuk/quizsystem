@@ -19,10 +19,11 @@
   
    <% String post = "CreateQuestion";
 	int diff=0;
-	String[] correct = (String[])request.getAttribute("correct");
+	String[] correct = new String[4];
 	if(request.getParameter("id")!=null){
 		post+="?id="+request.getParameter("id");
 		diff = (Integer)request.getAttribute("diff");
+		correct = (String[])request.getAttribute("correct");
 		//String[] correct = (String[])request.getAttribute("correct");
 		System.out.println("difficult type "+diff);
 	}

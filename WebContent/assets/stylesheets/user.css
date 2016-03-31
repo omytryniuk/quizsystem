@@ -1,4 +1,4 @@
-.registrationCard {
+.UserCard {
   margin: 0 auto;
 
   height: 400px;
@@ -13,4 +13,9 @@
 .mdl-card__supporting-text {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+}
+
+h3{
+	text-align:center;
+	
 }
