@@ -13,17 +13,18 @@
   
   <title>New user registration</title>
 <script>
-function validate(form)
+function validate()
 {
-    for (i = 0; i < form.length; i++){
-    	
-         if( (form.elements[i].value == "")){
-           alert("You must provide a value for the field named: " +form.elements[i].value + "and "+ s);
-           return false; 
-
-           }
-        }
-        return true;
+	var x = reg.email.value
+	if(x.search(/[A-Za-z0-9]*.[A-Za-z0-9]*.(myseneca|senecacollege).ca/)!=-1){
+		document.getElementById('errfn').innerHTML="";
+		  return true
+	 }
+		else{
+			document.getElementById('errfn').innerHTML="Please, provide Seneca email";
+		 return false
+		}
+	 
 }
 </script>
 
@@ -37,7 +38,7 @@ function validate(form)
     <h3 class="mdl-card__title-text">Create a new account</h3>
   </div>
   
-  <form action="CreateUser" method=post onsubmit="return validate(this);">
+  <form name="reg" action="CreateUser" method=post onsubmit="return validate();">
   <div class="mdl-card__supporting-text">
   
     <p style="color:red"> ${message} </p>
@@ -54,14 +55,14 @@ function validate(form)
     
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="email" id="email" name="email">
-      <label class="mdl-textfield__label" for="email">Email Address</label>
+      <label class="mdl-textfield__label" for="email">Email Address</label><span style="color:red;" id="errfn"></span>
     </div>
     
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="password" id="password" name="password">
       <label class="mdl-textfield__label" for="password">Password</label>
     </div>
-      <input type="hidden" name="qtype" value="Admin">
+   
     
   </div>
   
