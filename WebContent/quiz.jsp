@@ -46,6 +46,8 @@ if(list.get(i).getDifficulty() == 3 && hard_counter < 1) {
 }
 }
 
+//Collections.shuffle(Questions);
+
 HttpSession currSession = request.getSession();
 currSession.setAttribute("quiz", Questions);
 
@@ -128,7 +130,21 @@ int q = 0;
   		</ul> 
   	<%  
   		q++;
-  	}   
+  	} else if(Questions.get(i).getType().equals("dropdown")) {
+  	%>
+  	    <p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
+  	    <select>
+		      <% for(Answer a:la) {
+			      int l = 1;%>
+				      <option id="answerA" name="question<% out.print(q); %>" value="<% out.print(a.getAnswerId()); %>" ><% out.println(a.getText());%></option>
+                          <% out.println(a.getText());
+                          l++;%>
+			  <%} %>
+		  </select>
+    <%  
+	    q++;
+    
+    }  
 }
 
 %>  
