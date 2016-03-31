@@ -41,7 +41,24 @@ public class CreateUser extends HttpServlet {
 		String password = request.getParameter("password");
 		String fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
-		String type = request.getParameter("qtype");
+		String type=null;
+		
+		
+		if(uname.toLowerCase().contains("@myseneca.ca")){
+			System.out.println("User");
+			type="User";
+		}
+		else{
+			System.out.println("Admin");
+			type="Admin";
+		}
+		
+		
+		
+		
+		
+		
+		
 		HibernateUtil hu = new HibernateUtil();
 		User add=new User();
 		

@@ -20,13 +20,13 @@
 <div class="UserCard mdl-card mdl-shadow--6dp">
 
   <div class="mdl-card__title">
-    <h3 class="mdl-card__title-text">Login</h3>
+    <h5 class="mdl-card__title-text">Login</h5>
   </div>
   
   <form action="Login" method=post>
   <div class="mdl-card__supporting-text">
   
-    <p style="color:red"> ${message} </p>
+    <h5 style="color:orange"> ${message} </h5>
     
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
       <input class="mdl-textfield__input" type="email" id="email" name="email">
