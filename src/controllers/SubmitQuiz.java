@@ -20,117 +20,142 @@ import org.hibernate.criterion.Restrictions;
 import ca.myseneca.a2.User;
 import util.HibernateUtil;
 
+import java.util.*;
+import ca.myseneca.a2.Question;
+import ca.myseneca.a2.Answer;
+
 @WebServlet("/SubmitQuiz")
 public class SubmitQuiz extends HttpServlet {
 	
     protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
     	
+    	// Getting quiz info from the session:
+    	
+    	HttpSession currSession = request.getSession();
+    	
+    	List<Question> questionsList = (List<Question>)currSession.getAttribute("quiz");
+    	
+    	Set<Answer> answersSet;
+    	Boolean isAnswerCorrect;
+    	Boolean flag;
+    	
     	String languages[];
     	String htmlResponse = "<html>";
-    	int i;
+    	//int i;
     	
-    	// First Question:
+    	int totalScore = 0;
     	
-    	languages = request.getParameterValues("question0");
+    	String[][] myAnswers = {
+    		request.getParameterValues("question0"),
+    		request.getParameterValues("question1"),
+    		request.getParameterValues("question2"),
+    		request.getParameterValues("question3"),
+    		request.getParameterValues("question4"),
+    		request.getParameterValues("question5")
+    	};
     	
-    	i = 1;
-    	
-    	if (languages != null) {
-    	    htmlResponse += "<h2>First Question:</h2>";
-    	    for (String lang : languages) {
-    	    	i++;
-    	    	htmlResponse += i + "<p> answer is: " + lang + "</p>";
-    	    	htmlResponse += "</html>";    	    	
-    	        System.out.println("\t" + lang);
-    	    }
-    	    htmlResponse += "<br>";
+    	for(int i = 0; i < questionsList.size(); i++) {
+    		htmlResponse += "<h1>QUESTION</h1>";
+    		isAnswerCorrect = true;
+    		if(questionsList.get(i).getType().equals("checkbox")) {
+    			htmlResponse += "<h3>checkbox</h3>";
+    			htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
+    			answersSet = questionsList.get(i).getAnswers();
+    			for(Answer ans: answersSet) {
+    	    	    if(ans.isCorrect().equals("true")) {
+    	    	    	flag = false;
+    	    	    	for(int j = 0; j < myAnswers[i].length; j++) {
+    	    	    		if(Integer.parseInt(myAnswers[i][j]) == ans.getAnswerId()) {
+    	    	    			flag = true;
+    	    	    			break;
+    	    	    		}
+    	    	    	}
+    	    	    	if(flag == false) {
+    	    	    		isAnswerCorrect = false;
+    	    	    		break;
+    	    	    	}
+    	    	    } else {
+    	    	    	flag = false;
+    	    	    	for(int j = 0; j < myAnswers[i].length; j++) {
+    	    	    		if(Integer.parseInt(myAnswers[i][j]) == ans.getAnswerId()) {
+    	    	    			flag = true;
+    	    	    			break;
+    	    	    		}
+    	    	    	}
+    	    	    	if(flag == true) {
+    	    	    		isAnswerCorrect = false;
+    	    	    		break;
+    	    	    	}
+    	    	    }
+    	    	}
+    			
+    			if(isAnswerCorrect) {
+    				totalScore += questionsList.get(i).getDifficulty();
+    			}
+    			
+    			htmlResponse += "<h5>Is my answer correct?</h5>";
+    			htmlResponse += "<p>";
+    			htmlResponse += String.valueOf(isAnswerCorrect);
+    			htmlResponse += "</p>";
+    			
+    		} else if(questionsList.get(i).getType().equals("textinput")) {
+    			htmlResponse += "<h3>textinput</h3>";
+    			htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
+    			
+    			answersSet = questionsList.get(i).getAnswers();
+    			
+    			htmlResponse += "<h5>Is my answer correct?</h5>";
+    			
+    	    	if(myAnswers[i][0].equals(((Answer)(answersSet.toArray()[0])).getText())) {
+        		    totalScore += questionsList.get(i).getDifficulty();
+    	    		htmlResponse += "<p>true</p>";
+    	    	} else {
+    	    		htmlResponse += "<p>false</p>";
+    	    	}
+    	    	
+    		} else if(questionsList.get(i).getType().equals("multiplechoice")) {
+    			htmlResponse += "<h3>multiplechoice</h3>";
+    			htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
+    			
+    			answersSet = questionsList.get(i).getAnswers();
+    			
+    			for(Answer ans: answersSet) {
+    				if(ans.isCorrect().equals("true")) {
+    				    if(ans.getAnswerId() == Integer.parseInt(myAnswers[i][0])) {
+    					    totalScore += questionsList.get(i).getDifficulty();
+    					    isAnswerCorrect = true;
+    				    } else {
+    					    isAnswerCorrect = false;
+    				    }
+    				    break;
+    				}
+    			}
+    			
+    			htmlResponse += "<h5>Is my answer correct?</h5>";
+    			htmlResponse += "<p>";
+    			htmlResponse += String.valueOf(isAnswerCorrect);
+    			htmlResponse += "</p>";
+    			
+    		} else if(questionsList.get(i).getType().equals("numberinput")) {
+    			htmlResponse += "<h3>numberinput</h3>";
+    			htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
+    			
+    			answersSet = questionsList.get(i).getAnswers();
+    			
+                htmlResponse += "<h5>Is my answer correct?</h5>";
+    			
+    	    	if(myAnswers[i][0].equals(((Answer)(answersSet.toArray()[0])).getText())) {
+        		    totalScore += questionsList.get(i).getDifficulty();
+    	    		htmlResponse += "<p>true</p>";
+    	    	} else {
+    	    		htmlResponse += "<p>false</p>";
+    	    	}
+    			
+    		}
     	}
     	
-        // Second Question:
-    	
-    	languages = request.getParameterValues("question1");
-    	
-    	i = 1;
-    	
-    	if (languages != null) {
-    	    htmlResponse += "<h2>Second Question:</h2>";
-    	    for (String lang : languages) {
-    	    	i++;
-    	    	htmlResponse += i + "<p> answer is: " + lang + "</p>";
-    	    	htmlResponse += "</html>";    	    	
-    	        System.out.println("\t" + lang);
-    	    }
-    	    htmlResponse += "<br>";
-    	}
-    	
-        // Third Question:
-    	
-    	languages = request.getParameterValues("question2");
-    	
-    	i = 1;
-    	
-    	if (languages != null) {
-    	    htmlResponse += "<h2>Third Question:</h2>";
-    	    for (String lang : languages) {
-    	    	i++;
-    	    	htmlResponse += i + "<p> answer is: " + lang + "</p>";
-    	    	htmlResponse += "</html>";    	    	
-    	        System.out.println("\t" + lang);
-    	    }
-    	    htmlResponse += "<br>";
-    	}
-    	
-        // Fourth Question:
-    	
-    	languages = request.getParameterValues("question3");
-    	
-    	i = 1;
-    	
-    	if (languages != null) {
-    	    htmlResponse += "<h2>Fourth Question:</h2>";
-    	    for (String lang : languages) {
-    	    	i++;
-    	    	htmlResponse += i + "<p> answer is: " + lang + "</p>";
-    	    	htmlResponse += "</html>";    	    	
-    	        System.out.println("\t" + lang);
-    	    }
-    	    htmlResponse += "<br>";
-    	}
-    	
-        // Fifth Question:
-    	
-    	languages = request.getParameterValues("question4");
-    	
-    	i = 1;
-    	
-    	if (languages != null) {
-    	    htmlResponse += "<h2>Fifth Question:</h2>";
-    	    for (String lang : languages) {
-    	    	i++;
-    	    	htmlResponse += i + "<p> answer is: " + lang + "</p>";
-    	    	htmlResponse += "</html>";    	    	
-    	        System.out.println("\t" + lang);
-    	    }
-    	    htmlResponse += "<br>";
-    	}
-    	
-        // Sixth Question:
-    	
-    	languages = request.getParameterValues("question5");
-    	
-    	i = 1;
-    	
-    	if (languages != null) {
-    	    htmlResponse += "<h2>Sixth Question:</h2>";
-    	    for (String lang : languages) {
-    	    	i++;
-    	    	htmlResponse += i + "<p> answer is: " + lang + "</p>";
-    	    	htmlResponse += "</html>";    	    	
-    	        System.out.println("\t" + lang);
-    	    }
-    	    htmlResponse += "<br>";
-    	}
+    	htmlResponse += ("<p>total score is: </p>" + Integer.toString(totalScore * 10) + "%");
     	
     	// Output:
     	

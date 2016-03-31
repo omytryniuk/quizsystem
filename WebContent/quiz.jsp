@@ -61,66 +61,80 @@ if(list.get(i).getDifficulty() == 3 && hard_counter < 1) {
 	hard_counter++;
 }
 }
+
+HttpSession currSession = request.getSession();
+currSession.setAttribute("quiz", Questions);
+
 int q = 0;
 %>
 
 
 
-  <form id="form1" method="post" action="SubmitQuiz">
-  		<% for(int i = 0; i < Questions.size(); i++) {
-  			 if(Questions.get(i).getType().equals("multiplechoice")) {
-  			%>       		<p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
-			<ul>
-			<% for(Answer a:la) {
-				int l = 1;%>
-			  <li>
-			    <label for="answerA">
-				<input type="radio" id="answerA" name="question<% out.print(q); %>" value="<% out.println(q); %>" />
-<% out.println(a.getText());
-l++;%>
-				</label>
-			  </li>
+<form id="form1" method="post" action="SubmitQuiz">
+    <% for(int i = 0; i < Questions.size(); i++) {
+        if(Questions.get(i).getType().equals("multiplechoice")) {
+  	%>
+  	    <p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
+		  <ul>
+		      <% for(Answer a:la) {
+			      int l = 1;%>
+			      <li>
+			          <label for="answerA">
+				      <input type="radio" id="answerA" name="question<% out.print(q); %>" value="<% out.print(a.getAnswerId()); %>" />
+                          <% out.println(a.getText());
+                          l++;%>
+				      </label>
+			      </li>
 			  <%} %>
-			</ul> 
-<%  
-	q++; } 
-  			 else if(Questions.get(i).getType().equals("numberinput")) {
-  			%>       		<p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
+		  </ul> 
+    <%  
+	    q++;
+    
+    } else if(Questions.get(i).getType().equals("numberinput")) {
+  	%>
+  	    <p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
 
-			    <label for="answerA">
-  <input "margin-left:12em;" type="number" id="answer" name="question<% out.print(q); %>" value ="">				</label>
-<%  
-	q++; }
-  			 else if(Questions.get(i).getType().equals("textinput")) {
-  			%>       		<p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
+	    <label for="answerA">
+        <input "margin-left:12em;" type="number" id="answer" name="question<% out.print(q); %>" value ="">				</label>
+    <%  
+	    q++;
+    
+    } else if(Questions.get(i).getType().equals("textinput")) {
+  	%>
+  	    <p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
 
-			    <label for="answerA">
-  <input "margin-left:12em;" type="text" id="answer" name="question<% out.print(q); %>" value ="">				</label>
-<%  
-	q++; } 
-  			 else if(Questions.get(i).getType().equals("checkbox")) {
-  	  			%>       		<p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
-  				<ul>
-  				<% for(Answer a:la) {
-  					int l = 1;%>
-  				  <li>
+	    <label for="answerA">
+        <input "margin-left:12em;" type="text" id="answer" name="question<% out.print(q); %>" value ="">				</label>
+    <%  
+	    q++;
+    
+    } else if(Questions.get(i).getType().equals("checkbox")) {
+  	%>
+  	    <p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
+  		<ul>
+  		    <% for(Answer a:la) {
+  			    int l = 1;%>
+  				<li>
   				    <label for="answerA">
-  					<input type="checkbox" id="answerA" name="question<% out.print(q); %>" value="<% out.println(a.getText()); %>" />
-  	<% out.println(a.getText());
-  	l++;%>
-  					</label>
-  				  </li>
-  				  <%} %>
-  				</ul> 
+  					<input type="checkbox" id="answerA" name="question<% out.print(q); %>" value="<% out.print(a.getAnswerId()); %>" />
+  	                <% out.println(a.getText());
+  	                l++;%>
+  		            </label>
+  				</li>
+  		    <%
+  		    } %>
+  		</ul> 
   	<%  
-  		q++; }   
-  			 }
-  		%>  
-  		<br/>
-		  <p class="buttonSet">
-		    <button type="reset" id="resetButton" value="reset">Reset</button>
-			<button type="submit" id="submitButton" value="Apply">Submit</button>
-		  </p>   				   
-  		</form> 
+  		q++;
+  	}   
+}
+
+%>  
+<br/>
+<p class="buttonSet">
+<button type="reset" id="resetButton" value="reset">Reset</button>
+<button type="submit" id="submitButton" value="Apply">Submit</button>
+</p>   				   
+</form> 
 </body>
 </html>
