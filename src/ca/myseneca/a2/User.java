@@ -12,9 +12,6 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
-
-//import com.mysql.jdbc.*;
-
 @Entity
 public class User{
 	private int userId;
@@ -111,7 +108,6 @@ public class User{
 		cfg.addAnnotatedClass(Quiz.class);
 		
 		
-		// http://stackoverflow.com/questions/14977018/jpa-how-to-get-entity-based-on-field-value-other-than-id
 		cfg.configure();
 		new SchemaExport(cfg).create(true,false);
 		SessionFactory f = cfg.buildSessionFactory();
@@ -122,7 +118,6 @@ public class User{
 		
 		User temp = (User)criteria.add(Restrictions.eq("email", em)).uniqueResult();
 		
-//		Quiz temp = (Quiz) current.get(Quiz.class,id);
 		if(temp==null){
 			System.out.println("Not found");
 			return false;

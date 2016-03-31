@@ -62,8 +62,6 @@ public class DeleteQuestion extends HttpServlet {
 		
 		request.getRequestDispatcher("allquestions.jsp").forward(request, response);
 		
-		
-	
 	}
 
 	/**

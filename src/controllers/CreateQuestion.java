@@ -120,14 +120,11 @@ public class CreateQuestion extends HttpServlet {
 		for (int i =0;i<4;i++){
 			session.save(li[i]);
 		}
-		
-	//	session.save(q);
-		
+				
 		session.getTransaction().commit();
 		
 		request.getRequestDispatcher("allquestions.jsp").forward(request, response);
 	
-		
 	}
 
 	/**

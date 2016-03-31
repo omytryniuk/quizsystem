@@ -58,9 +58,7 @@ public void objGet(String name){
 	Configuration cfg = new Configuration();
 	cfg.addAnnotatedClass(User.class);
 	cfg.addAnnotatedClass(Quiz.class);
-	
-	
-	// http://stackoverflow.com/questions/14977018/jpa-how-to-get-entity-based-on-field-value-other-than-id
+
 	cfg.configure();
 	new SchemaExport(cfg).create(true,false);
 	SessionFactory f = cfg.buildSessionFactory();
@@ -69,8 +67,6 @@ public void objGet(String name){
 	
 	Criteria criteria = current.createCriteria(Quiz.class);
 	Quiz temp = (Quiz) criteria.add(Restrictions.eq("name", name)).uniqueResult();
-	
-//	Quiz temp = (Quiz) current.get(Quiz.class,id);
 	
 	 System.out.println("The QUIZ name is " + temp.getName() +" and " + "desc is " + temp.getDescription());
 	 current.getTransaction().commit();
@@ -90,65 +86,14 @@ public void goO(String name, String desc){
 		Session current = f.getCurrentSession();
 		current.beginTransaction();
 		
-		/*User oleg = new User();
-		oleg.setName("Oleg");
-		oleg.setEmail("omytryniuk@myseneca.ca");
-		oleg.setPassword("p@ssword");
-		oleg.setType("admin");
-		
-		Quiz java = new Quiz();
-		Quiz c = new Quiz();
-		java.setDescription("Java Course");
-		java.setName("Java");
-		c.setDescription("C++ Course");
-		c.setName("C++");
-		*/
-	//	List<Quiz> q = new ArrayList<Quiz>();
-		//q.add(c);
-		//q.add(java);
-		
-		//oleg.setQuizzes(q);
 		
 		Quiz temp = new Quiz();
 		temp.setDescription(desc);
 		temp.setName(name);
-		/*
-		java.getUsers().add(oleg);
-		c.getUsers().add(oleg);
-		System.out.println("CHECK is " + oleg.arsize());
-		oleg.getQuizzes().add(java);
-		System.out.println("CHECK is " + oleg.arsize());
-		String tot = "";
-		
-		List<Quiz> temp = new ArrayList<Quiz>();
-		temp = oleg.getQuizzes();
-		for (Quiz s : temp)
-		{
-		    tot += s.getDescription() + "\t";
-		}
-		*/
-		///System.out.println("RESULT is " + tot);
-		//current.save(oleg);
-		//current.save(c);
-		//current.save(java);
+
 		current.save(temp);
 		current.getTransaction().commit();
-		//List<Quiz> r = new ArrayList<Quiz>();
-		//r = oleg.getQuizzes();
-		
-		//for(Quiz t : r){
-			//System.out.println(t.getName());
-			
-		//}
-		
-	
-		//System.out.println("ADD1");
-	  //  Scanner sc = new Scanner(System.in);
-	  //   int i = sc.nextInt();
-//String res = "Welcome " + oleg.getName() + " back. You have the next quizzes available " + oleg.getQuizzes();
-	//System.out.println("ADD2");
-//System.out.println(res);
-	//	return tot;
+
 		
 	}
 	

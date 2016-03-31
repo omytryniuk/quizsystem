@@ -78,25 +78,6 @@ public class CreateInputQuestion extends HttpServlet {
 			a = new Answer(q,answer,"true");
 		}	
 			
-			//q.setAnswerExplained(answerexplained);
-			//q.setDifficulty(diff);
-			//q.setText(questionText);
-			//q.setType(qtype);
-			
-			
-			
-			
-			
-			
-			
-		
-		
-		
-		
-		
-	//	response.getWriter().print("The passed ID is " + receivedId);
-	//	Question q = new Question(questionText,answerexplained,qtype,diff);
-		//Answer a = new Answer(q,answer,"true");
 		session.save(q);
 		session.save(a);
        session.getTransaction().commit();
