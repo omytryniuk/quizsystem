@@ -24,11 +24,47 @@ public class HibernateUtil {
 	final String PASSWORD = "cnTN9559";
 	
 	
+	
+	
 	// VALIDATION
 	
-		public boolean validation(){
+		public boolean validation(String uname){
 			
-			return true;
+			boolean ch = true;
+			 
+			
+			Connection conn = null;
+			Statement stmt = null;
+			ResultSet rs = null;
+			try {
+				Class.forName(DRIVER_NAME);
+	 			String url = "jdbc:mysql://" + SYS_NAME + "/" + DB_NAME;
+	 			conn = DriverManager.getConnection(url, USERID, PASSWORD);
+			    stmt = conn.createStatement();
+	 			String sql = "select userId from User where email='"+uname+"'";
+	 	        rs = stmt.executeQuery(sql);
+	 	       if(rs.absolute(1))
+	 	    	ch = false;
+	   	    }
+			catch (ClassNotFoundException cnfex) {
+				System.err.println("Failed to load JDBC driver.");
+			} catch (SQLException e) {
+				e.printStackTrace();
+				System.out.println("Exception: " + e.getMessage());
+			}
+	 
+			
+			finally {
+				try {
+					if (stmt != null)
+						stmt.close();
+	 				if (conn != null)
+						conn.close();
+				} catch (SQLException e) {
+				  }
+			}
+			
+		return ch; 
 			
 		}
 		

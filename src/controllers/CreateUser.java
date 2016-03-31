@@ -74,7 +74,7 @@ public class CreateUser extends HttpServlet {
 			}
 					
 			add = new User(uname,password, fname,lname,type);
-			valid = hu.validation();
+			valid = hu.validation(uname);
 		}
 		
 		// IF VALIDATION PASSES - CREATE SESSION
@@ -101,9 +101,15 @@ public class CreateUser extends HttpServlet {
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 					
 		}
-	}
-
 	
+
+	else {
+		request.setAttribute("message", "The user with such name already exists. Choose another email");
+		request.getRequestDispatcher("registration.jsp").forward(request, response);
+		
+	}
+	
+	}
 	
 	
 	/**
