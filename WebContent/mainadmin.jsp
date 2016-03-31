@@ -14,7 +14,7 @@
 <%
     HttpSession currSession = request.getSession();
  
-    if(currSession.getAttribute("isLoggedIn") == null || currSession.getAttribute("userType") != "Admin") {
+    if(currSession.getAttribute("isLoggedIn") == null) {
 	    response.sendRedirect("index.jsp");
     }
   %>
