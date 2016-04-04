@@ -3,3 +3,29 @@ body {
   background-size: cover;
   position: relative;
 }
+
+.mdl-layout__header-row {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.homeButton {
+	margin-left: 10px;
+	margin-right: 20px;
+	padding: 5px;
+	color: white;
+}
+
+.material-icons {
+	font-size: 30px !important;
+}
+
+.mdl-mini-footer {
+	padding-top: 6px !important;
+	padding-bottom: 6px !important;
+}
+
+.backButton {
+	margin-left: 5px !important;
+	margin-top: 5px !important;*/
+}

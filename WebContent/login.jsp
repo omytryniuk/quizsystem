@@ -12,11 +12,23 @@
   
   <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
   
-  
-  
   <title>Login form</title>
 </head>
 <body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+<header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <a class="homeButton" href="index.jsp">
+          <i class="material-icons">home</i>
+        </a>
+        <span class="mdl-layout__title">ROME Quiz System</span>
+      </div>
+    </header>
+
+<main class="mdl-layout__content">
+
 <div class="UserCard mdl-card mdl-shadow--6dp">
 
   <div class="mdl-card__title">
@@ -46,7 +58,29 @@
   </div>
   </form>
 </div>
+
+<button onclick="location.href='index.jsp';" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--primary backButton">
+        <i class="material-icons">keyboard_backspace</i>
+      </button>
  
-</form>
+</main>
+
+<footer class="mdl-mini-footer">
+      <div class="mdl-mini-footer__left-section">
+        <div class="mdl-logo">
+          Team ROME
+        </div>
+        <ul class="mdl-mini-footer__link-list">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Technologies</a></li>
+          <li><a href="#">Members</a></li>
+        </ul>
+      </div>
+    </footer>
+
+
+
+</div>
+
 </body>
 </html>
