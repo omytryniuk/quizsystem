@@ -21,6 +21,7 @@
 %>
 
 <%
+
 SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 Session ses = sessionFactory.openSession();
 List<Question> list = ses.createCriteria(Question.class).list();
@@ -78,7 +79,7 @@ int q = 0;
     <% for(int i = 0; i < Questions.size(); i++) {
         if(Questions.get(i).getType().equals("multiplechoice")) {
   	%>
-  	    <p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
+  	    <p> <% out.println(q+1); %>) <% out.println(Questions.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = Questions.get(i).getAnswers(); %> </p>
 		  <ul>
 		      <% for(Answer a:la) {
 			      int l = 1;%>
@@ -96,7 +97,7 @@ int q = 0;
     
     } else if(Questions.get(i).getType().equals("numberinput")) {
   	%>
-  	    <p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
+  	    <p> <% out.println(q+1); %>) <% out.println(Questions.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = Questions.get(i).getAnswers(); %> </p>
 
 	    <label for="answerA">
         <input "margin-left:12em;" type="number" id="answer" name="question<% out.print(q); %>" value ="">				</label>
@@ -105,7 +106,7 @@ int q = 0;
     
     } else if(Questions.get(i).getType().equals("textinput")) {
   	%>
-  	    <p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
+  	    <p> <% out.println(q+1); %>) <% out.println(Questions.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = Questions.get(i).getAnswers(); %> </p>
 
 	    <label for="answerA">
         <input "margin-left:12em;" type="text" id="answer" name="question<% out.print(q); %>" value ="">				</label>
@@ -114,7 +115,7 @@ int q = 0;
     
     } else if(Questions.get(i).getType().equals("checkbox")) {
   	%>
-  	    <p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
+  	    <p> <% out.println(q+1); %>) <% out.println(Questions.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = Questions.get(i).getAnswers(); %> </p>
   		<ul>
   		    <% for(Answer a:la) {
   			    int l = 1;%>
@@ -132,7 +133,7 @@ int q = 0;
   		q++;
   	} else if(Questions.get(i).getType().equals("dropdown")) {
   	%>
-  	    <p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
+  	    <p> <% out.println(q+1); %>) <% out.println(Questions.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = Questions.get(i).getAnswers(); %> </p>
   	    <select name="question<% out.print(q); %>">
 		      <% for(Answer a:la) {
 			      int l = 1;%>
