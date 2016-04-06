@@ -127,7 +127,7 @@ public class SubmitQuiz extends HttpServlet {
     			
     			htmlResponse += "<h5>Is my answer correct?</h5>";
     			
-    	    	if(myAnswers[i][0].equals(((Answer)(answersSet.toArray()[0])).getText())) {
+    	    	if(myAnswers[i][0].equalsIgnoreCase(((Answer)(answersSet.toArray()[0])).getText())) {
         		    totalScore += questionsList.get(i).getDifficulty();
     	    		htmlResponse += "<p>true</p>";
     	    	} else {
@@ -190,7 +190,7 @@ public class SubmitQuiz extends HttpServlet {
     			
                 htmlResponse += "<h5>Is my answer correct?</h5>";
     			
-    	    	if(myAnswers[i][0].equals(((Answer)(answersSet.toArray()[0])).getText())) {
+    	    	if(myAnswers[i][0].equalsIgnoreCase(((Answer)(answersSet.toArray()[0])).getText())) {
         		    totalScore += questionsList.get(i).getDifficulty();
     	    		htmlResponse += "<p>true</p>";
     	    	} else {

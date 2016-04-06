@@ -26,11 +26,13 @@ SessionFactory sessionFactory = new Configuration().configure().buildSessionFact
 Session ses = sessionFactory.openSession();
 List<Question> list = ses.createCriteria(Question.class).list();
 List<Question> Questions = new ArrayList<Question>();
-
 String difficulty = "";
 int easy_counter = 0;
 int medium_counter = 0;
 int hard_counter = 0;
+
+Collections.shuffle(list);
+
 for(int i = 0; i < list.size(); i++) {
 	
 if(list.get(i).getDifficulty() == 1 && easy_counter < 3) {
@@ -46,8 +48,6 @@ if(list.get(i).getDifficulty() == 3 && hard_counter < 1) {
 	hard_counter++;
 }
 }
-
-//Collections.shuffle(Questions);
 
 HttpSession currSession = request.getSession();
 currSession.setAttribute("quiz", Questions);
