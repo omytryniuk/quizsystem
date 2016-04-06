@@ -100,7 +100,7 @@ int q = 0;
   	    <p> <% out.println(q+1); %>) <% out.println(Questions.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = Questions.get(i).getAnswers(); %> </p>
 
 	    <label for="answerA">
-        <input "margin-left:12em;" type="number" id="answer" name="question<% out.print(q); %>" value ="">				</label>
+        <input "margin-left:12em;" type="number" id="answer" name="question<% out.print(q); %>" value ="" required>				</label>
     <%  
 	    q++;
     
@@ -109,7 +109,7 @@ int q = 0;
   	    <p> <% out.println(q+1); %>) <% out.println(Questions.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = Questions.get(i).getAnswers(); %> </p>
 
 	    <label for="answerA">
-        <input "margin-left:12em;" type="text" id="answer" name="question<% out.print(q); %>" value ="">				</label>
+        <input "margin-left:12em;" type="text" id="answer" name="question<% out.print(q); %>" value ="" required>				</label>
     <%  
 	    q++;
     
