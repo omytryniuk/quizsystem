@@ -133,7 +133,7 @@ int q = 0;
   	} else if(Questions.get(i).getType().equals("dropdown")) {
   	%>
   	    <p> <% out.println(q+1); %>) <% out.println(list.get(i).getText()); Set<Answer> la = new HashSet<Answer>();la = list.get(i).getAnswers(); %> </p>
-  	    <select>
+  	    <select name="question<% out.print(q); %>">
 		      <% for(Answer a:la) {
 			      int l = 1;%>
 				      <option id="answerA" name="question<% out.print(q); %>" value="<% out.print(a.getAnswerId()); %>" ><% out.println(a.getText());%></option>
