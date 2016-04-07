@@ -9,6 +9,48 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>Insert title here</title>
+
+<script>
+function validateForm() {
+
+	var quantity =0;
+	var checked = 0;
+	var dd;
+	var select = document.getElementsByTagName("select").length;
+
+	for(var c =0;c<6;c++){
+			var radios = document.getElementsByName("question"+c);
+			if(radios.length>1)
+				quantity++;
+				dd=0;
+				for(var i=0; i<radios.length;i++){
+					if (radios[i].checked)
+				       dd++;
+ 				}
+				if (dd>0){
+					checked++;
+				}
+		
+	}
+	
+	checked+=select;
+//	alert("C: "+checked);
+//	alert("Q: "+quantity);
+//	alert("S: "+select);
+	
+	
+
+	if(quantity==checked)
+		return true;
+	else{
+		alert("Please, fill all fields")
+		return false;
+	}
+		
+	
+}
+</script>
+
 </head>
 <body>
 
@@ -51,6 +93,7 @@ if(list.get(i).getDifficulty() == 3 && hard_counter < 1) {
 
 HttpSession currSession = request.getSession();
 currSession.setAttribute("quiz", Questions);
+System.out.println("size is: "+ Questions.size());
 
 int q = 0;
 %>
@@ -75,7 +118,7 @@ int q = 0;
         </div>
     </div>
 </div><p></p><br><br><br>
-<form id="form1" method="post" action="SubmitQuiz">
+<form id="form1" method="post" action="SubmitQuiz" onsubmit="return validateForm()">
     <% for(int i = 0; i < Questions.size(); i++) {
         if(Questions.get(i).getType().equals("multiplechoice")) {
   	%>

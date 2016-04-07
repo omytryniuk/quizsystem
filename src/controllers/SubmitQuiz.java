@@ -35,6 +35,8 @@ public class SubmitQuiz extends HttpServlet {
     	HttpSession currSession = request.getSession();
     	
     	List<Question> questionsList = (List<Question>)currSession.getAttribute("quiz");
+    	System.out.println("SIZE of quiz is " + questionsList.size());
+    	
     	
     	Set<Answer> answersSet;
     	Boolean isAnswerCorrect;
@@ -54,6 +56,8 @@ public class SubmitQuiz extends HttpServlet {
     		request.getParameterValues("question4"),
     		request.getParameterValues("question5")
     	};
+    	
+    	
     	
     	for(int i = 0; i < questionsList.size(); i++) {
     		htmlResponse += "<h1>QUESTION</h1>";
