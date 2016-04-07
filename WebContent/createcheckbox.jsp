@@ -3,6 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <link rel="stylesheet" href="assets/stylesheets/style.css" type="text/css">
+  
+  <link rel="stylesheet" href="./assets/mdl/material.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="./assets/mdl/material.min.js"></script>
+  
     <title>Create Multiple Answer Question</title>
     <meta charset="utf-8">
     <link href="form.css" rel="stylesheet">
@@ -29,13 +35,32 @@
 	}
 
  %>
+ 
+ <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   
-    <div class="main">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <a class="homeButton" href="index.jsp">
+          <i class="material-icons">home</i>
+        </a>
+        <span class="mdl-layout__title">ROME Quiz System</span>
+        <div class="mdl-layout-spacer"></div>
+        <a href="Logoff" class="logoutButton">Log-out</a>
+      </div>
+    </header>
+    
+    <main class="mdl-layout__content">
+    
+    
+  
+    
+    
+    
+    <div class="CreateQuestionCard mdl-card mdl-shadow--6dp">
+    
 	 <form id="form1" method="post" action="<%=post%>" >
-	    <header>
-	      <h2>Create Multiple Choice Question</h2>
-		</header>
-		<section id="basic">
+	      <h4>Create Check Boxes Question</h4>
+		
       <p class="textLabel">Question Text</p>
       <textarea name="questionText">${questionText}</textarea><br/>
       Check all answers that are true
@@ -77,10 +102,26 @@
 		    <button type="reset" id="resetButton" value="reset">Reset</button>
 			<button type="submit" id="submitButton" value="Apply">Create</button>
 		  </p>
-		</section>
+		
 		<footer>
 		</footer>
 	  </form>
+	  
+	  
+	  
+	  </div>
+	  
+	  
+	  
     </div>
+    
+    
+    
+    
+    
+  </main>
+  
+  
+    
   </body>
 </html>

@@ -29,3 +29,121 @@ body {
 	margin-left: 5px !important;
 	margin-top: 5px !important;*/
 }
+
+.LoginCard .mdl-card__title {
+	padding-bottom: 0 !important;
+}
+.RegisterCard .mdl-card__title {
+	padding-bottom: 0 !important;
+}
+
+.logoutButton {
+	color: white;
+	margin-right: 20px;
+}
+
+/* MainUser */
+
+.MainUserCard {
+  margin: 0 auto;
+
+  height: 100px;
+  width: 180px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 -90px;
+}
+
+.MainUserCard .mdl-button {
+  font-weight: bold !important;
+  height: 70px !important;
+  width: 180px !important;
+  color: white !important;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 20px !important;
+}
+
+/* MainAdmin */
+
+.MainAdminCard {
+  margin: 0 auto;
+
+  height: 100px;
+  width: 220px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -50px 0 0 -110px;
+}
+
+.MainAdminCard .mdl-button {
+  font-weight: bold !important;
+  height: 70px !important;
+  width: 220px !important;
+  color: white !important;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 20px !important;
+}
+
+/* Quiz */
+
+.QuestionCard {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.QuestionCard > .mdl-card__title {
+  color: white;
+  background-color: #3f51b5;
+}
+
+.question-list-radio {
+  display: inline;
+}
+
+.ButtonSetCard {
+  width: 170px;
+  margin-left: auto;
+  margin-right: auto;
+  
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* MainAdmin */
+
+.questionTypeButton a {
+	color: #3f51b5 !important;
+}
+
+/* CreateQuestion */
+
+.CreateQuestionCard {
+	width: 500px !important;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+.ResultsCard {
+	width: 500px !important;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 50px;
+	padding-right: 50px;
+}

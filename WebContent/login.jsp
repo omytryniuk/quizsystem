@@ -29,7 +29,7 @@
 
 <main class="mdl-layout__content">
 
-<div class="UserCard mdl-card mdl-shadow--6dp">
+<div class="LoginCard mdl-card mdl-shadow--6dp">
 
   <div class="mdl-card__title">
     <h5 class="mdl-card__title-text">Login</h5>

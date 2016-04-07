@@ -43,8 +43,10 @@ public class SubmitQuiz extends HttpServlet {
     	Boolean flag;
     	
     	String languages[];
-    	String htmlResponse = "<html>";
+    	String htmlResponse = "<html><head><link rel='stylesheet' href='assets/stylesheets/style.css' type='text/css'><link rel='stylesheet' href='./assets/mdl/material.min.css'><link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'><script src='./assets/mdl/material.min.js'></script></head></body>";
     	//int i;
+    	
+    	htmlResponse += "<div class='mdl-layout mdl-js-layout mdl-layout--fixed-header'><header class='mdl-layout__header'><div class='mdl-layout__header-row'><a class='homeButton' href='index.jsp'><i class='material-icons'>home</i></a><span class='mdl-layout__title'>ROME Quiz System</span><div class='mdl-layout-spacer'></div><a href='Logoff' class='logoutButton'>Log-out</a></div></header><main class='mdl-layout__content'>";
     	
     	int totalScore = 0;
     	
@@ -57,25 +59,16 @@ public class SubmitQuiz extends HttpServlet {
     		request.getParameterValues("question5")
     	};
     	
+    	htmlResponse += "<div class='mdl-card mdl-shadow--2dp ResultsCard'>";
     	
+    	htmlResponse += "<h3>Incorrectly answered questions:</h3>";
     	
     	for(int i = 0; i < questionsList.size(); i++) {
-    		htmlResponse += "<h1>QUESTION</h1>";
+    		//htmlResponse += "<h4>QUESTION</h4>";
     		isAnswerCorrect = true;
     		if(questionsList.get(i).getType().equals("checkbox")) {
-    	//		htmlResponse += "<h3>checkbox</h3>";
-    	//		htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
-    			htmlResponse += (questionsList.get(i).getText());
+    	
     			answersSet = questionsList.get(i).getAnswers();
-    			
-    			//ADDED
-    			htmlResponse+="<p>Correct answers: </p>";
-    			for(Answer a : answersSet){
-    				if(a.isCorrect().equals("true")){
-    				htmlResponse += a.getText()+"<br>";
-    				System.out.println(a.getText());
-    				}
-    			}
     			
     			for(Answer ans: answersSet) {
     	    	    if(ans.isCorrect().equals("true")) {
@@ -109,52 +102,80 @@ public class SubmitQuiz extends HttpServlet {
     				totalScore += questionsList.get(i).getDifficulty();
     			}
     			
-    			htmlResponse += "<h5>Is my answer correct?</h5>";
-    			htmlResponse += "<p>";
-    			htmlResponse += String.valueOf(isAnswerCorrect);
-    			htmlResponse += "</p>";
+    			if(!isAnswerCorrect) {
+    			
+    			//htmlResponse += "<h5>Is my answer correct?</h5>";
+    			//htmlResponse += "<p>";
+    			//htmlResponse += String.valueOf(isAnswerCorrect);
+    			//htmlResponse += "</p>";
+    			
+    				htmlResponse += ("<h5>" + questionsList.get(i).getText() + "</h5>");
+        			
+        			
+        			//ADDED
+        			htmlResponse+="<p>Correct answers: </p>";
+        			for(Answer a : answersSet){
+        				if(a.isCorrect().equals("true")){
+        				htmlResponse += a.getText()+"<br>";
+        				System.out.println(a.getText());
+        				}
+        			}
+    				
+    			}
     			
     		} else if(questionsList.get(i).getType().equals("textinput")) {
     		//	htmlResponse += "<h3>textinput</h3>";
     		//	htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
     			
-    			htmlResponse += (questionsList.get(i).getText());
+    			//htmlResponse += ("<h4>" + questionsList.get(i).getText() + "</h4>");
     			answersSet = questionsList.get(i).getAnswers();
-    			htmlResponse+="<p>Correct answers: </p>";
+    			/*htmlResponse+="<p>Correct answers: </p>";
     			for(Answer a : answersSet){
     				if(a.isCorrect().equals("true")){
     				htmlResponse += a.getText()+"<br>";
     				System.out.println(a.getText());
     				}
-    			}
+    			}*/
     			
     			
-    			htmlResponse += "<h5>Is my answer correct?</h5>";
+    			//htmlResponse += "<h5>Is my answer correct?</h5>";
     			
     	    	if(myAnswers[i][0].equalsIgnoreCase(((Answer)(answersSet.toArray()[0])).getText())) {
         		    totalScore += questionsList.get(i).getDifficulty();
-    	    		htmlResponse += "<p>true</p>";
+    	    		//htmlResponse += "<p>true</p>";
+        		    
+        		    
+        		    
     	    	} else {
-    	    		htmlResponse += "<p>false</p>";
+    	    		//htmlResponse += "<p>false</p>";
+    	    		
+    	    		htmlResponse += ("<h5>" + questionsList.get(i).getText() + "</h5>");
+    	    		htmlResponse+="<p>Correct answers: </p>";
+        			for(Answer a : answersSet){
+        				if(a.isCorrect().equals("true")){
+        				htmlResponse += a.getText()+"<br>";
+        				System.out.println(a.getText());
+        				}
+        			}
     	    	}
     	    	
     		} else if(questionsList.get(i).getType().equals("multiplechoice")) {
     		//	htmlResponse += "<h3>multiplechoice</h3>";
     		//	htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
     			
-    			htmlResponse += (questionsList.get(i).getText());
+    			//htmlResponse += ("<h4>" + questionsList.get(i).getText() + "</h4>");
     			
     			
     			answersSet = questionsList.get(i).getAnswers();
     			
     			// CHANGED
-    			htmlResponse+="<p>Correct answers: </p>";
+    			/*htmlResponse+="<p>Correct answers: </p>";
     			for(Answer a : answersSet){
     				if(a.isCorrect().equals("true")){
     				htmlResponse += a.getText();
     				System.out.println(a.getText());
     				}
-    			}
+    			}*/
     			
     			
     		//	System.out.println(myAnswers[0][0]);
@@ -173,32 +194,52 @@ public class SubmitQuiz extends HttpServlet {
     				}
     			}
     			
-    			htmlResponse += "<h5>Is my answer correct?</h5>";
+    			/*htmlResponse += "<h5>Is my answer correct?</h5>";
     			htmlResponse += "<p>";
     			htmlResponse += String.valueOf(isAnswerCorrect);
-    			htmlResponse += "</p>";
+    			htmlResponse += "</p>";*/
+    			
+    			if(!isAnswerCorrect) {
+    				htmlResponse += ("<h5>" + questionsList.get(i).getText() + "</h5>");
+    				htmlResponse+="<p>Correct answers: </p>";
+        			for(Answer a : answersSet){
+        				if(a.isCorrect().equals("true")){
+        				htmlResponse += a.getText();
+        				System.out.println(a.getText());
+        				}
+        			}
+    			}
     			
     		} else if(questionsList.get(i).getType().equals("numberinput")) {
     		//	htmlResponse += "<h3>numberinput</h3>";
     		//	htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
-    			htmlResponse += (questionsList.get(i).getText());
+    			//htmlResponse += (questionsList.get(i).getText());
     			answersSet = questionsList.get(i).getAnswers();
-    			htmlResponse+="<p>Correct answers: </p>";
+    			/*htmlResponse+="<p>Correct answers: </p>";
     			for(Answer a : answersSet){
     				if(a.isCorrect().equals("true")){
     				htmlResponse += a.getText()+"<br>";
     				System.out.println(a.getText());
     				}
-    			}
+    			}*/
     			
     			
-                htmlResponse += "<h5>Is my answer correct?</h5>";
+                //htmlResponse += "<h5>Is my answer correct?</h5>";
     			
     	    	if(myAnswers[i][0].equalsIgnoreCase(((Answer)(answersSet.toArray()[0])).getText())) {
         		    totalScore += questionsList.get(i).getDifficulty();
-    	    		htmlResponse += "<p>true</p>";
+    	    		//htmlResponse += "<p>true</p>";
     	    	} else {
-    	    		htmlResponse += "<p>false</p>";
+    	    		//htmlResponse += "<p>false</p>";
+    	    		
+    	    		htmlResponse += ("<h5>" + questionsList.get(i).getText() + "</h5>");
+    	    		htmlResponse+="<p>Correct answers: </p>";
+        			for(Answer a : answersSet){
+        				if(a.isCorrect().equals("true")){
+        				htmlResponse += a.getText()+"<br>";
+        				System.out.println(a.getText());
+        				}
+        			}
     	    	}
     			
     		} else if(questionsList.get(i).getType().equals("dropdown")) {
@@ -206,13 +247,13 @@ public class SubmitQuiz extends HttpServlet {
         		//	htmlResponse += Integer.toString(questionsList.get(i).getDifficulty());
         			
     			System.out.println("CHECKING IS: "+ request.getParameterValues("question1"));
-        			htmlResponse += (questionsList.get(i).getText());
+        			//htmlResponse += (questionsList.get(i).getText());
         			
         			
         			answersSet = questionsList.get(i).getAnswers();
         			
         			// CHANGED
-        			htmlResponse+="<p>Correct answers: </p>";
+        			/*htmlResponse+="<p>Correct answers: </p>";
         			for(Answer a : answersSet){
         				System.out.println("ANSWER IS" + a.getText()+"\n");
         				System.out.println("ID:" + i);
@@ -220,7 +261,7 @@ public class SubmitQuiz extends HttpServlet {
         				htmlResponse += a.getText();
         				System.out.println(a.getText());
         				}
-        			}
+        			}*/
         			
         	System.out.println("ANSWER size is "+ answersSet.size());
         			
@@ -241,15 +282,32 @@ public class SubmitQuiz extends HttpServlet {
         			
         			
         			
-        			htmlResponse += "<h5>Is my answer correct?</h5>";
+        			/*htmlResponse += "<h5>Is my answer correct?</h5>";
         			htmlResponse += "<p>";
         			htmlResponse += String.valueOf(isAnswerCorrect);
-        			htmlResponse += "</p>";
+        			htmlResponse += "</p>";*/
+        			
+        			if(!isAnswerCorrect) {
+        				htmlResponse += ("<h5>" + questionsList.get(i).getText() + "</h5>");
+        				htmlResponse+="<p>Correct answers: </p>";
+            			for(Answer a : answersSet){
+            				System.out.println("ANSWER IS" + a.getText()+"\n");
+            				System.out.println("ID:" + i);
+            				if(a.isCorrect().equals("true")){
+            				htmlResponse += a.getText();
+            				System.out.println(a.getText());
+            				}
+            			}
+        			}
         			
         		}
     	}
     	
-    	htmlResponse += ("<p>total score is: </p>" + Integer.toString(totalScore * 10) + "%");
+    	//htmlResponse += ("<p>total score is: </p>" + Integer.toString(totalScore * 10) + "%");
+    	
+    	htmlResponse += ("<h3>total score is: " + Integer.toString(totalScore * 10) + "%" + "</h3>");
+    	
+    	htmlResponse += "</div></main></div></body></body>";
     	
     	// Output:
     	

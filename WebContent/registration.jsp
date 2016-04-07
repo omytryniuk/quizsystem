@@ -42,7 +42,7 @@
     
     <main class="mdl-layout__content">
 
-      <div class="UserCard mdl-card mdl-shadow--6dp">
+      <div class="RegisterCard mdl-card mdl-shadow--6dp">
 
         <div class="mdl-card__title">
           <h3 class="mdl-card__title-text">Create a new account</h3>
