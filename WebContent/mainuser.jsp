@@ -5,12 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
   <link rel="stylesheet" href="assets/stylesheets/style.css" type="text/css">
-  
   <link rel="stylesheet" href="./assets/mdl/material.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="./assets/mdl/material.min.js"></script>
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
@@ -24,7 +21,7 @@
     }
   %>
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
@@ -46,28 +43,21 @@
           </button>
         </a>
       </div>
-
-
-  <p style="color:red"> ${name}, Welcome back. Your status is User </p>
-  
-  </main>
+      
+    </main>
     
     <footer class="mdl-mini-footer">
       <div class="mdl-mini-footer__left-section">
         <div class="mdl-logo">
           Team ROME
         </div>
-        <ul class="mdl-mini-footer__link-list">
+        <!--<ul class="mdl-mini-footer__link-list">
           <li><a href="#">About</a></li>
           <li><a href="#">Technologies</a></li>
           <li><a href="#">Members</a></li>
-        </ul>
+        </ul>-->
       </div>
     </footer>
-    
   </div>
-  
- 
- 
 </body>
 </html>

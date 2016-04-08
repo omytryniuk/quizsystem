@@ -2,7 +2,11 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head>  
+    <link rel="stylesheet" href="assets/stylesheets/style.css" type="text/css">
+    <link rel="stylesheet" href="./assets/mdl/material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="./assets/mdl/material.min.js"></script>
     <title>Create Numerical Input Question</title>
     <meta charset="utf-8">
     <link href="form.css" rel="stylesheet">
@@ -27,10 +31,23 @@
 
  %>			
   
+
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
   
-  
-    <div class="main">
-	 <form id="form1" method="post" action="<%=post%>" >
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <a class="homeButton" href="index.jsp">
+            <i class="material-icons">home</i>
+          </a>
+          <span class="mdl-layout__title">ROME Quiz System</span>
+          <div class="mdl-layout-spacer"></div>
+          <a href="Logoff" class="logoutButton">Log-out</a>
+        </div>
+      </header>
+    
+      <main class="mdl-layout__content">
+        <div class="CreateQuestionCard mdl-card mdl-shadow--6dp">
+	    <form id="form1" method="post" action="<%=post%>" >
 	    <header>
 	      <h2>Create Number Input Question</h2>
 		</header>
@@ -73,6 +90,9 @@
 		<footer>
 		</footer>
 	  </form>
+    
     </div>
+    </main>
+    
   </body>
 </html>

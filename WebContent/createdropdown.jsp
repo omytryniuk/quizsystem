@@ -3,8 +3,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <link rel="stylesheet" href="assets/stylesheets/style.css" type="text/css">
+  <link rel="stylesheet" href="./assets/mdl/material.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="./assets/mdl/material.min.js"></script>
+  <title>Insert title here</title>
 </head>
 <body>
 
@@ -28,25 +32,39 @@
 
  %>	
   
-    <div class="main">
-	  <form id="form1" method="post" action="<%=post%>" >
-	    <header>
-	      <h2>Create Multiple Choice Question</h2>
-		</header>
-		<section id="basic">
-      <p class="textLabel">Question Text</p>
-      <textarea name="questionText">${questionText}</textarea>
-      <p class="textLabel">Option A</p>
-      <textarea name="answerA">${A1}</textarea>
-      <p class="textLabel">Option B</p>
-      <textarea name="answerB">${A2}</textarea>
-      <p class="textLabel">Option C</p>
-      <textarea name="answerC">${A3}</textarea>
-      <p class="textLabel">Option D</p>
-      <textarea name="answerD">${A4}</textarea> 
-       <p class="textLabel">Answer explanation</p>
-      <textarea name="answerexpl">${answerexpl}</textarea>  
-      <input type="hidden" name="qtype" value="dropdown">
+  
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <a class="homeButton" href="index.jsp">
+          <i class="material-icons">home</i>
+        </a>
+        <span class="mdl-layout__title">ROME Quiz System</span>
+        <div class="mdl-layout-spacer"></div>
+        <a href="Logoff" class="logoutButton">Log-out</a>
+      </div>
+    </header>
+    
+    <main class="mdl-layout__content">    
+      <div class="CreateQuestionCard mdl-card mdl-shadow--6dp">
+        <form id="form1" method="post" action="<%=post%>" >
+	      <header>
+	        <h2>Create Multiple Choice Question</h2>
+		  </header>
+		  <section id="basic">
+          <p class="textLabel">Question Text</p>
+          <textarea name="questionText">${questionText}</textarea>
+          <p class="textLabel">Option A</p>
+          <textarea name="answerA">${A1}</textarea>
+          <p class="textLabel">Option B</p>
+          <textarea name="answerB">${A2}</textarea>
+          <p class="textLabel">Option C</p>
+          <textarea name="answerC">${A3}</textarea>
+          <p class="textLabel">Option D</p>
+          <textarea name="answerD">${A4}</textarea> 
+          <p class="textLabel">Answer explanation</p>
+          <textarea name="answerexpl">${answerexpl}</textarea>  
+          <input type="hidden" name="qtype" value="dropdown">
 		  <fieldset>
 		    <legend>Correct Answer</legend>
 			<ul>
@@ -108,7 +126,6 @@
 		</footer>
 	  </form>
     </div>
-
-
+  </main>
 </body>
 </html>

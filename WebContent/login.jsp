@@ -16,9 +16,9 @@
 </head>
 <body>
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-<header class="mdl-layout__header">
+    <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
         <a class="homeButton" href="index.jsp">
           <i class="material-icons">home</i>
@@ -27,60 +27,55 @@
       </div>
     </header>
 
-<main class="mdl-layout__content">
+    <main class="mdl-layout__content">
 
-<div class="LoginCard mdl-card mdl-shadow--6dp">
+      <div class="LoginCard mdl-card mdl-shadow--6dp">
 
-  <div class="mdl-card__title">
-    <h5 class="mdl-card__title-text">Login</h5>
-  </div>
+        <div class="mdl-card__title">
+          <h5 class="mdl-card__title-text">Login</h5>
+        </div>
   
-  <form action="Login" method=post>
-  <div class="mdl-card__supporting-text">
+        <form action="Login" method=post>
+          <div class="mdl-card__supporting-text">
   
-    <h5 style="color:orange"> ${message} </h5>
+            <h5 style="color:orange"> ${message} </h5>
     
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="email" id="email" name="email">
-      <label class="mdl-textfield__label" for="email">Email Address</label>
-    </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="email" id="email" name="email">
+              <label class="mdl-textfield__label" for="email">Email Address</label>
+            </div>
     
-   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="password" id="password" name="password">
-      <label class="mdl-textfield__label" for="password">Password</label>
-    </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="password" id="password" name="password">
+              <label class="mdl-textfield__label" for="password">Password</label>
+            </div>
       
     
-  </div>
+          </div>
   
-  <div class="mdl-card__actions mdl-card--border">
-    <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Submit</button>
-  </div>
-  </form>
-</div>
+          <div class="mdl-card__actions mdl-card--border">
+            <button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Submit</button>
+          </div>
+        </form>
+      </div>
 
-<button onclick="location.href='index.jsp';" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--primary backButton">
+      <button onclick="location.href='index.jsp';" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--primary backButton">
         <i class="material-icons">keyboard_backspace</i>
       </button>
- 
-</main>
+      </main>
 
-<footer class="mdl-mini-footer">
+      <footer class="mdl-mini-footer">
       <div class="mdl-mini-footer__left-section">
         <div class="mdl-logo">
           Team ROME
         </div>
-        <ul class="mdl-mini-footer__link-list">
+        <!--<ul class="mdl-mini-footer__link-list">
           <li><a href="#">About</a></li>
           <li><a href="#">Technologies</a></li>
           <li><a href="#">Members</a></li>
-        </ul>
+        </ul>-->
       </div>
-    </footer>
-
-
-
-</div>
-
-</body>
+      </footer>
+    </div>
+  </body>
 </html>

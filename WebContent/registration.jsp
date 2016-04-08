@@ -47,6 +47,8 @@
         <div class="mdl-card__title">
           <h3 class="mdl-card__title-text">Create a new account</h3>
         </div>
+        
+        <p style="font-size: 12px; margin-bottom: 0; padding-left: 15px; padding-right: 15px;">(Please user @myseneca.ca email account to register as a regular user and @senecacollege.ca - for admin. The system automatically assigns roles upon registration based on the email extension.)</p>
 
         <form name="reg" action="CreateUser" method=post onsubmit="return validate();">
           <div class="mdl-card__supporting-text">
@@ -92,11 +94,11 @@
         <div class="mdl-logo">
           Team ROME
         </div>
-        <ul class="mdl-mini-footer__link-list">
+        <!--<ul class="mdl-mini-footer__link-list">
           <li><a href="#">About</a></li>
           <li><a href="#">Technologies</a></li>
           <li><a href="#">Members</a></li>
-        </ul>
+        </ul>-->
       </div>
     </footer>
     

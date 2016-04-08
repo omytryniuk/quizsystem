@@ -5,6 +5,9 @@
   <head>
     <title>Create Text Input Question</title>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/stylesheets/style.css" type="text/css">
+    <link rel="stylesheet" href="./assets/mdl/material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="form.css" rel="stylesheet">
   </head>
   <body>
@@ -27,7 +30,24 @@
 
  %>			
   
-    <div class="main">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <a class="homeButton" href="index.jsp">
+          <i class="material-icons">home</i>
+        </a>
+        <span class="mdl-layout__title">ROME Quiz System</span>
+        <div class="mdl-layout-spacer"></div>
+        <a href="Logoff" class="logoutButton">Log-out</a>
+      </div>
+    </header>
+    
+    <main class="mdl-layout__content">  
+    
+    <div class="CreateQuestionCard mdl-card mdl-shadow--6dp">
+  
+    
 	  <form id="form1" method="post" action="<%=post%>" >
 	    <header>
 	      <h2>Create Text Input Question</h2>
@@ -70,7 +90,8 @@
 		</section>
 		<footer>
 		</footer>
-	  </form>
-    </div>
+	  </form>  
+	  </div>
+	</main>
   </body>
 </html>

@@ -120,7 +120,7 @@ int q = 0;
     <main class="mdl-layout__content">
 
 
-<form id="form1" method="post" action="SubmitQuiz" onsubmit="return validateForm()">
+    <form id="form1" method="post" action="SubmitQuiz" onsubmit="return validateForm()">
     <% for(int i = 0; i < Questions.size(); i++) {
         if(Questions.get(i).getType().equals("multiplechoice")) {
   	%>
@@ -254,25 +254,7 @@ int q = 0;
 </div>
 
 </form> 
-
-
 </main>
-    
-    <!--<footer class="mdl-mini-footer">
-      <div class="mdl-mini-footer__left-section">
-        <div class="mdl-logo">
-          Team ROME
-        </div>
-        <ul class="mdl-mini-footer__link-list">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Technologies</a></li>
-          <li><a href="#">Members</a></li>
-        </ul>
-      </div>
-    </footer>-->
-    
-  </div>
-
-
+</div>
 </body>
 </html>

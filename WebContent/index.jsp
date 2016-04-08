@@ -60,11 +60,11 @@
         <div class="mdl-logo">
           Team ROME
         </div>
-        <ul class="mdl-mini-footer__link-list">
+        <!--<ul class="mdl-mini-footer__link-list">
           <li><a href="#">About</a></li>
           <li><a href="#">Technologies</a></li>
           <li><a href="#">Members</a></li>
-        </ul>
+        </ul>-->
       </div>
     </footer>
     
